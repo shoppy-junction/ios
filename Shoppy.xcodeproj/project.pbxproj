@@ -13,6 +13,17 @@
 		EB0CA60521A8695E004DE83C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60321A8695E004DE83C /* Main.storyboard */; };
 		EB0CA60721A86960004DE83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60621A86960004DE83C /* Assets.xcassets */; };
 		EB0CA60A21A86960004DE83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60821A86960004DE83C /* LaunchScreen.storyboard */; };
+		EBCF0C9821A87B10001C071D /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C8E21A87B10001C071D /* SCNVector3+Extensions.swift */; };
+		EBCF0C9921A87B10001C071D /* SceneLocationEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C8F21A87B10001C071D /* SceneLocationEstimate.swift */; };
+		EBCF0C9A21A87B10001C071D /* SceneLocationEstimate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C9021A87B10001C071D /* SceneLocationEstimate+Extensions.swift */; };
+		EBCF0C9B21A87B10001C071D /* FloatingPoint+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C9121A87B10001C071D /* FloatingPoint+Radians.swift */; };
+		EBCF0C9C21A87B10001C071D /* LocationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C9221A87B10001C071D /* LocationNode.swift */; };
+		EBCF0C9D21A87B10001C071D /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C9321A87B10001C071D /* CGPoint+Extensions.swift */; };
+		EBCF0C9E21A87B10001C071D /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C9421A87B10001C071D /* CLLocation+Extensions.swift */; };
+		EBCF0C9F21A87B10001C071D /* SceneLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C9521A87B10001C071D /* SceneLocationView.swift */; };
+		EBCF0CA021A87B10001C071D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C9621A87B10001C071D /* LocationManager.swift */; };
+		EBCF0CA121A87B10001C071D /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0C9721A87B10001C071D /* SCNNode+Extensions.swift */; };
+		EBCF0CA321A87BBB001C071D /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF0CA221A87BBB001C071D /* ARKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +37,17 @@
 		EB0CA60621A86960004DE83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0CA60921A86960004DE83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0CA60B21A86960004DE83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBCF0C8E21A87B10001C071D /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
+		EBCF0C8F21A87B10001C071D /* SceneLocationEstimate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneLocationEstimate.swift; sourceTree = "<group>"; };
+		EBCF0C9021A87B10001C071D /* SceneLocationEstimate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SceneLocationEstimate+Extensions.swift"; sourceTree = "<group>"; };
+		EBCF0C9121A87B10001C071D /* FloatingPoint+Radians.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+Radians.swift"; sourceTree = "<group>"; };
+		EBCF0C9221A87B10001C071D /* LocationNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationNode.swift; sourceTree = "<group>"; };
+		EBCF0C9321A87B10001C071D /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		EBCF0C9421A87B10001C071D /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extensions.swift"; sourceTree = "<group>"; };
+		EBCF0C9521A87B10001C071D /* SceneLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneLocationView.swift; sourceTree = "<group>"; };
+		EBCF0C9621A87B10001C071D /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		EBCF0C9721A87B10001C071D /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
+		EBCF0CA221A87BBB001C071D /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCF0CA321A87BBB001C071D /* ARKit.framework in Frameworks */,
 				CFB9F2169AA97EF19BB4A47A /* Pods_Shoppy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,13 +69,13 @@
 				474BC678A6ED0300C995C048 /* Pods-Shoppy.debug.xcconfig */,
 				A63B553DF99C0ED8CB9CAEC7 /* Pods-Shoppy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		D773A040ADB6FF13E6B5D56E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBCF0CA221A87BBB001C071D /* ARKit.framework */,
 				B007628DC33E5C69710E5ADA /* Pods_Shoppy.framework */,
 			);
 			name = Frameworks;
@@ -79,6 +102,7 @@
 		EB0CA5FE21A8695E004DE83C /* Shoppy */ = {
 			isa = PBXGroup;
 			children = (
+				EBCF0C8D21A87B10001C071D /* ARCL */,
 				EB0CA5FF21A8695E004DE83C /* AppDelegate.swift */,
 				EB0CA60121A8695E004DE83C /* ViewController.swift */,
 				EB0CA60321A8695E004DE83C /* Main.storyboard */,
@@ -87,6 +111,23 @@
 				EB0CA60B21A86960004DE83C /* Info.plist */,
 			);
 			path = Shoppy;
+			sourceTree = "<group>";
+		};
+		EBCF0C8D21A87B10001C071D /* ARCL */ = {
+			isa = PBXGroup;
+			children = (
+				EBCF0C8E21A87B10001C071D /* SCNVector3+Extensions.swift */,
+				EBCF0C8F21A87B10001C071D /* SceneLocationEstimate.swift */,
+				EBCF0C9021A87B10001C071D /* SceneLocationEstimate+Extensions.swift */,
+				EBCF0C9121A87B10001C071D /* FloatingPoint+Radians.swift */,
+				EBCF0C9221A87B10001C071D /* LocationNode.swift */,
+				EBCF0C9321A87B10001C071D /* CGPoint+Extensions.swift */,
+				EBCF0C9421A87B10001C071D /* CLLocation+Extensions.swift */,
+				EBCF0C9521A87B10001C071D /* SceneLocationView.swift */,
+				EBCF0C9621A87B10001C071D /* LocationManager.swift */,
+				EBCF0C9721A87B10001C071D /* SCNNode+Extensions.swift */,
+			);
+			path = ARCL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,7 +141,6 @@
 				EB0CA5F821A8695E004DE83C /* Sources */,
 				EB0CA5F921A8695E004DE83C /* Frameworks */,
 				EB0CA5FA21A8695E004DE83C /* Resources */,
-				63D92C20F7D3BE829B446EF8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,28 +220,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63D92C20F7D3BE829B446EF8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Shoppy/Pods-Shoppy-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Shoppy/Pods-Shoppy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -209,8 +227,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCF0CA121A87B10001C071D /* SCNNode+Extensions.swift in Sources */,
+				EBCF0C9F21A87B10001C071D /* SceneLocationView.swift in Sources */,
 				EB0CA60221A8695E004DE83C /* ViewController.swift in Sources */,
+				EBCF0C9E21A87B10001C071D /* CLLocation+Extensions.swift in Sources */,
+				EBCF0CA021A87B10001C071D /* LocationManager.swift in Sources */,
+				EBCF0C9921A87B10001C071D /* SceneLocationEstimate.swift in Sources */,
+				EBCF0C9D21A87B10001C071D /* CGPoint+Extensions.swift in Sources */,
+				EBCF0C9821A87B10001C071D /* SCNVector3+Extensions.swift in Sources */,
+				EBCF0C9C21A87B10001C071D /* LocationNode.swift in Sources */,
+				EBCF0C9A21A87B10001C071D /* SceneLocationEstimate+Extensions.swift in Sources */,
 				EB0CA60021A8695E004DE83C /* AppDelegate.swift in Sources */,
+				EBCF0C9B21A87B10001C071D /* FloatingPoint+Radians.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +385,7 @@
 			baseConfigurationReference = 474BC678A6ED0300C995C048 /* Pods-Shoppy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59PUM5CV3T;
 				INFOPLIST_FILE = Shoppy/Info.plist;
@@ -366,6 +395,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.jackcook.Shoppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -376,6 +406,7 @@
 			baseConfigurationReference = A63B553DF99C0ED8CB9CAEC7 /* Pods-Shoppy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59PUM5CV3T;
 				INFOPLIST_FILE = Shoppy/Info.plist;
@@ -385,6 +416,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.jackcook.Shoppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

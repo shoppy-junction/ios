@@ -4,5 +4,4 @@ target 'Shoppy' do
   use_frameworks!
 
   # Pods for Shoppy
-  pod 'ARCL', '~> 1.0'
 end
