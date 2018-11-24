@@ -32,6 +32,7 @@ class ProductView: UIVisualEffectView {
         layer.cornerRadius = 8
         
         addToCartButton.backgroundColor = addToCartButton.tintColor
+        addToCartButton.layer.cornerRadius = 4
         addToCartButton.setTitleColor(.white, for: .normal)
     }
     

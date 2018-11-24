@@ -35,7 +35,12 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
             fatalError()
         }
         
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "ImageProducts", bundle: nil) else {
+            fatalError()
+        }
+        
         configuration.detectionObjects = referenceObjects
+        configuration.detectionImages = referenceImages
         sceneView.session.delegate = self
         sceneView.session.run(configuration)
         
@@ -92,6 +97,10 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     
     // MARK: - ARSessionDelegate
     
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        print(camera.trackingState)
+    }
+    
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         guard let name = anchors.first?.name, let product = Product.products.first(where: { $0.modelName == name }) else {
             return
@@ -109,12 +118,10 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         guard let frame = sceneView.session.currentFrame else {
             return
         }
-        
+
         for anchor in frame.anchors {
             sceneView.session.remove(anchor: anchor)
         }
-        
-        print(export)
     }
     
     // MARK: - ScannerDelegate

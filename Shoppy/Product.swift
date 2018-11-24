@@ -21,15 +21,19 @@ struct Product: Hashable {
     }
     
     static var meat: Product {
-        return Product(imageName: "Ham", modelName: "ham-v1", name: "Peppered Ham", price: "€1.89", pricePerWeight: "€10.50/kg", weight: "180g")
+        return Product(imageName: "Ham", modelName: "ham-v2", name: "Peppered Ham", price: "€1.89", pricePerWeight: "€10.50/kg", weight: "180g")
     }
     
     static var orangeJuice: Product {
-        return Product(imageName: "Orange Juice", modelName: "orangejuice-v2", name: "Orange Juice", price: "€0.89", pricePerWeight: "€0.85/l", weight: "1l")
+        return Product(imageName: "Orange Juice", modelName: "orangejuice-v3", name: "Orange Juice", price: "€0.89", pricePerWeight: "€0.85/l", weight: "1l")
+    }
+    
+    static var popcorn: Product {
+        return Product(imageName: "Popcorn", modelName: "popcorn-v1", name: "Popcorn", price: "€0.67", pricePerWeight: "€7.44/kg", weight: "90g")
     }
     
     static var products: [Product] {
-        return [.bread, .meat, .orangeJuice]
+        return [.bread, .meat, .orangeJuice, .popcorn]
     }
 }
 
