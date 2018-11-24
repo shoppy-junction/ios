@@ -6,9 +6,10 @@
 //  Copyright © 2018 Jack Cook. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 
 struct Product: Hashable {
+    
     let imageName: String
     let modelName: String
     let name: String
@@ -16,24 +17,46 @@ struct Product: Hashable {
     let pricePerWeight: String
     let weight: String
     
-    static var bread: Product {
-        return Product(imageName: "Bread", modelName: "bread-v1", name: "Loaf of Bread", price: "€1.50", pricePerWeight: "€2.50/kg", weight: "300g")
+    init?(_ json: JSON) {
+        guard let result = json["results"].array?.first else {
+            return nil
+        }
+        
+        imageName = "Pin"
+        modelName = ""
+        name = result["marketingName"].dictionary?["finnish"]?.string ?? ""
+        price = "€3.24"
+        pricePerWeight = "€4.25/kg"
+        weight = "300g"
     }
     
-    static var meat: Product {
-        return Product(imageName: "Ham", modelName: "ham-v2", name: "Peppered Ham", price: "€1.89", pricePerWeight: "€10.50/kg", weight: "180g")
-    }
-    
-    static var orangeJuice: Product {
-        return Product(imageName: "Orange Juice", modelName: "orangejuice-v3", name: "Orange Juice", price: "€0.89", pricePerWeight: "€0.85/l", weight: "1l")
-    }
-    
-    static var popcorn: Product {
-        return Product(imageName: "Popcorn", modelName: "popcorn-v1", name: "Popcorn", price: "€0.67", pricePerWeight: "€7.44/kg", weight: "90g")
-    }
-    
-    static var products: [Product] {
-        return [.bread, .meat, .orangeJuice, .popcorn]
+    static func requestProductWithEAN(_ ean: String, completion: @escaping (JSON) -> Void) {
+        let url = URL(string: "https://kesko.azure-api.net/v1/search/products")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let body = [
+            "filters": [
+                "ean": ean
+            ]
+        ]
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("80a29c2c6af54807a3b1c57b6c78e032", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                return
+            }
+            
+            let json = JSON(data)
+            completion(json)
+        }
+        
+        task.resume()
     }
 }
 

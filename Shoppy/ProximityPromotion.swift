@@ -7,6 +7,7 @@
 //
 
 import EddystoneScanner
+import SwiftyJSON
 
 struct ProximityPromotion: Hashable {
     
@@ -15,7 +16,7 @@ struct ProximityPromotion: Hashable {
     let product: Product
     
     static var bread: ProximityPromotion {
-        return ProximityPromotion(beacon: 12, name: "Bread", product: .bread)
+        return ProximityPromotion(beacon: 12, name: "Bread", product: Product(JSON(["results": [[:]]]))!)
     }
     
     static var promotions: [ProximityPromotion] {

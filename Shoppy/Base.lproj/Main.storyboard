@@ -115,11 +115,19 @@
                                     <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NOa-D8-Wlz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf4-gT-ZZL">
+                                <rect key="frame" x="16" y="36" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6d8-uU-yCY" secondAttribute="trailing" constant="16" id="6NP-cC-6OO"/>
                             <constraint firstItem="Bwq-qM-pGk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7ms-vT-iex"/>
+                            <constraint firstItem="cf4-gT-ZZL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="D7n-tM-qeC"/>
+                            <constraint firstItem="cf4-gT-ZZL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="J8b-30-rIh"/>
                             <constraint firstItem="Bwq-qM-pGk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TJ9-A9-zJ2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bwq-qM-pGk" secondAttribute="trailing" id="Tei-Mm-HH1"/>
                             <constraint firstItem="Ueg-VR-LLi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZT9-HE-g6g"/>
@@ -131,6 +139,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="debugLabel" destination="cf4-gT-ZZL" id="TYd-la-4oy"/>
                         <outlet property="productView" destination="Ueg-VR-LLi" id="f7g-hL-IoG"/>
                         <outlet property="productViewBottomConstraint" destination="dWc-uK-Brp" id="PGT-dZ-6v3"/>
                         <outlet property="sceneView" destination="Bwq-qM-pGk" id="Or1-my-1Eo"/>

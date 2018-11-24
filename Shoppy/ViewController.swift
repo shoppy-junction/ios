@@ -25,6 +25,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var productView: ProductView!
     @IBOutlet weak var productViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var debugLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,12 +103,27 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     }
     
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        guard let name = anchors.first?.name, let product = Product.products.first(where: { $0.modelName == name }) else {
+        guard let ean = anchors.first?.name else {
             return
         }
         
-        productView.load(product: product)
-        showProductView()
+        Product.requestProductWithEAN(ean) { (json) in
+            guard let product = Product(json) else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.productView.load(product: product)
+                self.showProductView()
+            }
+        }
+        
+//        guard let name = anchors.first?.name, let product = Product.products.first(where: { $0.modelName == name }) else {
+//            return
+//        }
+//
+//        productView.load(product: product)
+//        showProductView()
     }
     
     // MARK: - ProductViewDelegate
@@ -146,6 +162,14 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         
         distances[beacon.minor] = beacon.rssi
         beaconList[index] = beacon
+        
+        guard let closestBeacon = beaconList.filter({ $0.minor != -1 }).sorted(by: { $0.rssi > $1.rssi }).first else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.debugLabel.text = String(closestBeacon.minor)
+        }
         
         for promotion in ProximityPromotion.promotions {
             if promotion.matches(beacons: beaconList) {
