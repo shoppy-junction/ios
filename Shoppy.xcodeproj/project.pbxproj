@@ -13,6 +13,9 @@
 		EB0CA60521A8695E004DE83C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60321A8695E004DE83C /* Main.storyboard */; };
 		EB0CA60721A86960004DE83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60621A86960004DE83C /* Assets.xcassets */; };
 		EB0CA60A21A86960004DE83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60821A86960004DE83C /* LaunchScreen.storyboard */; };
+		EB61877521A98DE50080BE8C /* BlurredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61877421A98DE50080BE8C /* BlurredButton.swift */; };
+		EB61877721A98EA40080BE8C /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61877621A98EA40080BE8C /* CartViewController.swift */; };
+		EB61877921A9AB4E0080BE8C /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61877821A9AB4E0080BE8C /* CartCell.swift */; };
 		EBCF0CA321A87BBB001C071D /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF0CA221A87BBB001C071D /* ARKit.framework */; };
 		EBCF0CA721A8CFD0001C071D /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CA621A8CFD0001C071D /* ProductView.swift */; };
 		EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAA21A8EB31001C071D /* Product.swift */; };
@@ -32,6 +35,9 @@
 		EB0CA60621A86960004DE83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0CA60921A86960004DE83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0CA60B21A86960004DE83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB61877421A98DE50080BE8C /* BlurredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredButton.swift; sourceTree = "<group>"; };
+		EB61877621A98EA40080BE8C /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		EB61877821A9AB4E0080BE8C /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		EBCF0CA221A87BBB001C071D /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		EBCF0CA621A8CFD0001C071D /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		EBCF0CAA21A8EB31001C071D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -94,11 +100,14 @@
 			children = (
 				EB0CA5FF21A8695E004DE83C /* AppDelegate.swift */,
 				EB0CA60121A8695E004DE83C /* ViewController.swift */,
+				EB61877621A98EA40080BE8C /* CartViewController.swift */,
 				EBCF0CA621A8CFD0001C071D /* ProductView.swift */,
 				EBCF0CAA21A8EB31001C071D /* Product.swift */,
 				EBCF0CAC21A8F3A7001C071D /* Cart.swift */,
 				EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */,
 				EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */,
+				EB61877421A98DE50080BE8C /* BlurredButton.swift */,
+				EB61877821A9AB4E0080BE8C /* CartCell.swift */,
 				EB0CA60321A8695E004DE83C /* Main.storyboard */,
 				EB0CA60621A86960004DE83C /* Assets.xcassets */,
 				EB0CA60821A86960004DE83C /* LaunchScreen.storyboard */,
@@ -232,11 +241,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBCF0CAF21A91291001C071D /* Beacon+Shoppy.swift in Sources */,
+				EB61877921A9AB4E0080BE8C /* CartCell.swift in Sources */,
 				EB0CA60221A8695E004DE83C /* ViewController.swift in Sources */,
+				EB61877521A98DE50080BE8C /* BlurredButton.swift in Sources */,
 				EBCF0CB121A919D4001C071D /* ProximityPromotion.swift in Sources */,
 				EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */,
 				EBCF0CAD21A8F3A7001C071D /* Cart.swift in Sources */,
 				EBCF0CA721A8CFD0001C071D /* ProductView.swift in Sources */,
+				EB61877721A98EA40080BE8C /* CartViewController.swift in Sources */,
 				EB0CA60021A8695E004DE83C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

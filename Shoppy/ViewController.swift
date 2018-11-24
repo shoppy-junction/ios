@@ -30,6 +30,8 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.isNavigationBarHidden = true
+        
         let configuration = ARWorldTrackingConfiguration()
         
         guard let referenceObjects = ARReferenceObject.referenceObjects(inGroupNamed: "Products", bundle: nil) else {
@@ -131,6 +133,8 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     func productView(_ productView: ProductView, addedProductToCart product: Product) {
         hideProductView()
         
+        Cart.shared.add(product)
+        
         guard let frame = sceneView.session.currentFrame else {
             return
         }
@@ -207,5 +211,9 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         }
         
         task.resume()
+    }
+    
+    @IBAction func shoppingCartButton(_ sender: Any) {
+        performSegue(withIdentifier: "shoppingCartSegue", sender: self)
     }
 }

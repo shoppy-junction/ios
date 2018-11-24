@@ -10,6 +10,14 @@ import Foundation
 
 class Cart {
     
+    class var shared: Cart {
+        struct Static {
+            static let instance = Cart()
+        }
+        
+        return Static.instance
+    }
+    
     var products: [Product] = []
     
     func add(_ product: Product) {
