@@ -74,15 +74,29 @@
                                                 <action selector="addedToCart:" destination="Ueg-VR-LLi" eventType="touchUpInside" id="j3k-Nl-F9I"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xG-Vz-ofT" customClass="CloseButton" customModule="Shoppy" customModuleProvider="target">
+                                            <rect key="frame" x="319" y="8" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="HD8-jY-P8M"/>
+                                                <constraint firstAttribute="width" constant="16" id="w2o-1T-JWV"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                            <state key="normal" image="Close"/>
+                                            <connections>
+                                                <action selector="closeButtonPressed:" destination="Ueg-VR-LLi" eventType="touchUpInside" id="J9y-Jo-uGo"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="EAi-UA-Nws" firstAttribute="leading" secondItem="Zdj-YO-8Wf" secondAttribute="leading" constant="12" id="0jE-qo-dlq"/>
                                         <constraint firstItem="2yh-Im-Th9" firstAttribute="leading" secondItem="Zdj-YO-8Wf" secondAttribute="leading" constant="12" id="3JR-Tk-ulN"/>
                                         <constraint firstItem="3vP-DD-UwS" firstAttribute="leading" secondItem="2yh-Im-Th9" secondAttribute="trailing" constant="8" id="9ax-1C-08J"/>
+                                        <constraint firstAttribute="trailing" secondItem="2xG-Vz-ofT" secondAttribute="trailing" constant="8" id="C51-ws-zLv"/>
                                         <constraint firstItem="PIX-1k-OPr" firstAttribute="leading" secondItem="EAi-UA-Nws" secondAttribute="trailing" constant="16" id="F7w-jm-cNR"/>
                                         <constraint firstItem="21g-Pz-7wu" firstAttribute="leading" secondItem="PIX-1k-OPr" secondAttribute="leading" id="FeZ-DC-Q5V"/>
                                         <constraint firstAttribute="trailing" secondItem="GIe-Mv-feL" secondAttribute="trailing" constant="16" id="RKC-bD-943"/>
                                         <constraint firstItem="iK4-if-GfY" firstAttribute="bottom" secondItem="PIX-1k-OPr" secondAttribute="bottom" id="SGc-1l-RUO"/>
+                                        <constraint firstItem="2xG-Vz-ofT" firstAttribute="top" secondItem="Zdj-YO-8Wf" secondAttribute="top" constant="8" id="Ueg-iz-gtr"/>
                                         <constraint firstItem="iK4-if-GfY" firstAttribute="top" secondItem="PIX-1k-OPr" secondAttribute="top" id="VCc-jP-Lm4"/>
                                         <constraint firstAttribute="bottom" secondItem="GIe-Mv-feL" secondAttribute="bottom" constant="16" id="Xad-e4-Kcj"/>
                                         <constraint firstItem="iK4-if-GfY" firstAttribute="leading" secondItem="PIX-1k-OPr" secondAttribute="trailing" constant="12" id="bOv-eo-lq9"/>
@@ -128,13 +142,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRB-GU-JTm">
-                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40.5"/>
                                             <connections>
                                                 <action selector="shoppingCartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b4b-Cb-fdA"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cart" translatesAutoresizingMaskIntoConstraints="NO" id="LJZ-jk-y63">
-                                            <rect key="frame" x="14" y="7" width="26" height="26"/>
+                                            <rect key="frame" x="14" y="7" width="26" height="26.5"/>
                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LJZ-jk-y63" secondAttribute="height" multiplier="1:1" id="672-Vr-N8A"/>
@@ -326,6 +340,7 @@
     </scenes>
     <resources>
         <image name="Cart" width="36" height="36"/>
+        <image name="Close" width="24" height="24"/>
         <image name="Ham" width="30.719999313354492" height="30.719999313354492"/>
     </resources>
 </document>

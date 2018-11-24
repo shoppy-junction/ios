@@ -13,7 +13,7 @@ import UIKit
 class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, ScannerDelegate {
     
     var distances: [Int: Int] = [:]
-    let distancesNumber = 2
+    let distancesNumber = 3
     var updateTimer: Timer!
     
     let scanner = EddystoneScanner.Scanner()
@@ -139,6 +139,18 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
             return
         }
 
+        for anchor in frame.anchors {
+            sceneView.session.remove(anchor: anchor)
+        }
+    }
+    
+    func productView(_ productView: ProductView, dismissedWithProduct product: Product?) {
+        hideProductView()
+        
+        guard let frame = sceneView.session.currentFrame else {
+            return
+        }
+        
         for anchor in frame.anchors {
             sceneView.session.remove(anchor: anchor)
         }

@@ -11,6 +11,7 @@ import UIKit
 
 protocol ProductViewDelegate {
     func productView(_ productView: ProductView, addedProductToCart product: Product)
+    func productView(_ productView: ProductView, dismissedWithProduct product: Product?)
 }
 
 class ProductView: UIVisualEffectView {
@@ -56,5 +57,9 @@ class ProductView: UIVisualEffectView {
         }
         
         delegate?.productView(self, addedProductToCart: product)
+    }
+    
+    @IBAction func closeButtonPressed(_ sender: UIButton) {
+        delegate?.productView(self, dismissedWithProduct: product)
     }
 }
