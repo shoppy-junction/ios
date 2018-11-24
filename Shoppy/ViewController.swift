@@ -7,17 +7,15 @@
 //
 
 import ARKit
-import EddystoneScanner
 import UIKit
 
-class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, RecipeViewDelegate, ScannerDelegate {
+class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, RecipeViewDelegate, BeaconScannerDelegate {
     
     var distances: [Int: Int] = [:]
     let distancesNumber = 3
     var updateTimer: Timer!
     
-    let scanner = EddystoneScanner.Scanner()
-    var beaconList = [Beacon]()
+    var beaconScanner: BeaconScanner!
     var matchedPromotions = [ProximityPromotion: Int]()
     
     var export = "minor,rssi,user_id,time\n"
@@ -52,8 +50,12 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         productView.delegate = self
         recipeView.delegate = self
         
-        scanner.startScanning()
-        scanner.delegate = self
+//        scanner.startScanning()
+//        scanner.delegate = self
+        
+        beaconScanner = BeaconScanner()
+        beaconScanner.delegate = self
+        beaconScanner.startScanning()
         
         updateTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(saveBluetoothData), userInfo: nil, repeats: true)
     }
@@ -180,59 +182,10 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         hideRecipeView()
     }
     
-    // MARK: - ScannerDelegate
-    
-    func didFindBeacon(scanner: EddystoneScanner.Scanner, beacon: Beacon) {
-        beaconList.append(beacon)
-    }
-    
-    func didLoseBeacon(scanner: EddystoneScanner.Scanner, beacon: Beacon) {
-        guard let index = beaconList.index(of: beacon) else {
-            return
-        }
-        
-        beaconList.remove(at: index)
-    }
-    
-    func didUpdateBeacon(scanner: EddystoneScanner.Scanner, beacon: Beacon) {
-        guard let index = beaconList.index(of: beacon) else {
-            beaconList.append(beacon)
-            return
-        }
-        
-        distances[beacon.minor] = beacon.rssi
-        beaconList[index] = beacon
-        
-        guard let closestBeacon = beaconList.filter({ $0.minor != -1 }).sorted(by: { $0.accuracy < $1.accuracy }).first else {
-            return
-        }
-        
-        DispatchQueue.main.async {
-            self.debugLabel.text = String(closestBeacon.minor)
-        }
-        
-        for promotion in ProximityPromotion.promotions {
-            if promotion.matches(beacons: beaconList) {
-                if matchedPromotions.contains(where: { $0.key == promotion }) {
-                    matchedPromotions[promotion] = (matchedPromotions[promotion] ?? 0) + 1
-                } else {
-                    matchedPromotions[promotion] = 1
-                }
-            } else {
-                matchedPromotions[promotion] = 0
-            }
-            
-            if matchedPromotions[promotion] == 50 {
-                DispatchQueue.main.async {
-                    self.productView.load(product: promotion.product)
-                    self.showProductView()
-                }
-            }
-        }
-    }
+    // MARK: - IBActions
     
     @IBAction func stopButton(_ sender: Any) {
-        let url = URL(string: "http://10.100.47.232:5000/locationdata")!
+        let url = URL(string: "http://10.100.18.2:5000/locationdata")!
         var request = URLRequest(url: url)
         request.httpBody = export.data(using: .utf8)
         request.httpMethod = "POST"
@@ -251,5 +204,51 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     
     @IBAction func shoppingCartButton(_ sender: Any) {
         performSegue(withIdentifier: "shoppingCartSegue", sender: self)
+    }
+    
+    // MARK: - BeaconScannerDelegate
+    
+    func didFindBeacon(beaconScanner: BeaconScanner, beaconInfo: BeaconInfo) {
+        print("FIND: \(beaconInfo.description)")
+    }
+    
+    func didLoseBeacon(beaconScanner: BeaconScanner, beaconInfo: BeaconInfo) {
+        print("LOST: \(beaconInfo.description)")
+    }
+    
+    func didUpdateBeacon(beaconScanner: BeaconScanner, beaconInfo: BeaconInfo) {
+        print("UPDATE: \(beaconInfo.description)")
+        distances[beaconInfo.minor] = beaconInfo.RSSI
+        
+        guard let closestBeacon = distances.min(by: { $0.value > $1.value || $1.key == -1 }) else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.debugLabel.text = String(closestBeacon.key)
+        }
+        
+        for promotion in ProximityPromotion.promotions {
+            if promotion.matches(distances: distances) {
+                if matchedPromotions.contains(where: { $0.key == promotion }) {
+                    matchedPromotions[promotion] = (matchedPromotions[promotion] ?? 0) + 1
+                } else {
+                    matchedPromotions[promotion] = 1
+                }
+            } else {
+                matchedPromotions[promotion] = 0
+            }
+            
+            if matchedPromotions[promotion] == 50 {
+                DispatchQueue.main.async {
+                    self.productView.load(product: promotion.product)
+                    self.showProductView()
+                }
+            }
+        }
+    }
+    
+    func didObserveURLBeacon(beaconScanner: BeaconScanner, URL: NSURL, RSSI: Int) {
+        print("URL SEEN: \(URL), RSSI: \(RSSI)")
     }
 }

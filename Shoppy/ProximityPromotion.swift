@@ -6,7 +6,6 @@
 //  Copyright © 2018 Jack Cook. All rights reserved.
 //
 
-import EddystoneScanner
 import SwiftyJSON
 
 struct ProximityPromotion: Hashable {
@@ -33,11 +32,11 @@ struct ProximityPromotion: Hashable {
         hasher.combine(product)
     }
     
-    func matches(beacons: [Beacon]) -> Bool {
-        guard let closestBeacon = beacons.filter({ $0.minor != -1 }).sorted(by: { $0.accuracy < $1.accuracy }).first else {
+    func matches(distances: [Int: Int]) -> Bool {
+        guard let closestBeacon = distances.min(by: { $0.value > $1.value || $1.key == -1 })?.key else {
             return false
         }
         
-        return closestBeacon.minor == beacon
+        return closestBeacon == beacon
     }
 }

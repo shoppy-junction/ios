@@ -18,11 +18,14 @@
 		EB61877921A9AB4E0080BE8C /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61877821A9AB4E0080BE8C /* CartCell.swift */; };
 		EBAACCA621A9C42400E22EDC /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAACCA521A9C42400E22EDC /* CloseButton.swift */; };
 		EBAACCA821A9C55000E22EDC /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAACCA721A9C55000E22EDC /* RecipeView.swift */; };
+		EBAACCAA21A9E19E00E22EDC /* Eddystone.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAACCA921A9E19E00E22EDC /* Eddystone.swift */; };
+		EBAACCAC21A9E1D400E22EDC /* BeaconScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAACCAB21A9E1D400E22EDC /* BeaconScanner.swift */; };
+		EBAACCAE21A9E22D00E22EDC /* DispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAACCAD21A9E22D00E22EDC /* DispatchTimer.swift */; };
 		EBCF0CA321A87BBB001C071D /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF0CA221A87BBB001C071D /* ARKit.framework */; };
 		EBCF0CA721A8CFD0001C071D /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CA621A8CFD0001C071D /* ProductView.swift */; };
 		EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAA21A8EB31001C071D /* Product.swift */; };
 		EBCF0CAD21A8F3A7001C071D /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAC21A8F3A7001C071D /* Cart.swift */; };
-		EBCF0CAF21A91291001C071D /* Beacon+Shoppy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */; };
+		EBCF0CAF21A91291001C071D /* BeaconInfo+Shoppy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAE21A91291001C071D /* BeaconInfo+Shoppy.swift */; };
 		EBCF0CB121A919D4001C071D /* ProximityPromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,11 +45,14 @@
 		EB61877821A9AB4E0080BE8C /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		EBAACCA521A9C42400E22EDC /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		EBAACCA721A9C55000E22EDC /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		EBAACCA921A9E19E00E22EDC /* Eddystone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eddystone.swift; sourceTree = "<group>"; };
+		EBAACCAB21A9E1D400E22EDC /* BeaconScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconScanner.swift; sourceTree = "<group>"; };
+		EBAACCAD21A9E22D00E22EDC /* DispatchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchTimer.swift; sourceTree = "<group>"; };
 		EBCF0CA221A87BBB001C071D /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		EBCF0CA621A8CFD0001C071D /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		EBCF0CAA21A8EB31001C071D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EBCF0CAC21A8F3A7001C071D /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
-		EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Beacon+Shoppy.swift"; sourceTree = "<group>"; };
+		EBCF0CAE21A91291001C071D /* BeaconInfo+Shoppy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeaconInfo+Shoppy.swift"; sourceTree = "<group>"; };
 		EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityPromotion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +108,7 @@
 		EB0CA5FE21A8695E004DE83C /* Shoppy */ = {
 			isa = PBXGroup;
 			children = (
+				EBAACCAF21A9E7A700E22EDC /* Eddystone */,
 				EB0CA5FF21A8695E004DE83C /* AppDelegate.swift */,
 				EB0CA60121A8695E004DE83C /* ViewController.swift */,
 				EB61877621A98EA40080BE8C /* CartViewController.swift */,
@@ -109,7 +116,7 @@
 				EBCF0CAA21A8EB31001C071D /* Product.swift */,
 				EBCF0CAC21A8F3A7001C071D /* Cart.swift */,
 				EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */,
-				EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */,
+				EBCF0CAE21A91291001C071D /* BeaconInfo+Shoppy.swift */,
 				EB61877421A98DE50080BE8C /* BlurredButton.swift */,
 				EB61877821A9AB4E0080BE8C /* CartCell.swift */,
 				EBAACCA521A9C42400E22EDC /* CloseButton.swift */,
@@ -120,6 +127,16 @@
 				EB0CA60B21A86960004DE83C /* Info.plist */,
 			);
 			path = Shoppy;
+			sourceTree = "<group>";
+		};
+		EBAACCAF21A9E7A700E22EDC /* Eddystone */ = {
+			isa = PBXGroup;
+			children = (
+				EBAACCA921A9E19E00E22EDC /* Eddystone.swift */,
+				EBAACCAB21A9E1D400E22EDC /* BeaconScanner.swift */,
+				EBAACCAD21A9E22D00E22EDC /* DispatchTimer.swift */,
+			);
+			path = Eddystone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +239,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Shoppy/Pods-Shoppy-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EddystoneScanner/EddystoneScanner.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -230,7 +246,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EddystoneScanner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -246,14 +261,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBCF0CAF21A91291001C071D /* Beacon+Shoppy.swift in Sources */,
+				EBCF0CAF21A91291001C071D /* BeaconInfo+Shoppy.swift in Sources */,
+				EBAACCAA21A9E19E00E22EDC /* Eddystone.swift in Sources */,
 				EB61877921A9AB4E0080BE8C /* CartCell.swift in Sources */,
 				EB0CA60221A8695E004DE83C /* ViewController.swift in Sources */,
 				EB61877521A98DE50080BE8C /* BlurredButton.swift in Sources */,
 				EBAACCA621A9C42400E22EDC /* CloseButton.swift in Sources */,
 				EBCF0CB121A919D4001C071D /* ProximityPromotion.swift in Sources */,
 				EBAACCA821A9C55000E22EDC /* RecipeView.swift in Sources */,
+				EBAACCAC21A9E1D400E22EDC /* BeaconScanner.swift in Sources */,
 				EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */,
+				EBAACCAE21A9E22D00E22EDC /* DispatchTimer.swift in Sources */,
 				EBCF0CAD21A8F3A7001C071D /* Cart.swift in Sources */,
 				EBCF0CA721A8CFD0001C071D /* ProductView.swift in Sources */,
 				EB61877721A98EA40080BE8C /* CartViewController.swift in Sources */,
