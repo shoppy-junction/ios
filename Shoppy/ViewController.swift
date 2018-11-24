@@ -6,15 +6,32 @@
 //  Copyright © 2018 Jack Cook. All rights reserved.
 //
 
+import ARKit
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ARSessionDelegate {
+    
+    @IBOutlet weak var sceneView: ARSCNView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let configuration = ARWorldTrackingConfiguration()
+        
+        guard let referenceObjects = ARReferenceObject.referenceObjects(inGroupNamed: "Products", bundle: nil) else {
+            fatalError()
+        }
+        
+        configuration.detectionObjects = referenceObjects
+        sceneView.session.delegate = self
+        sceneView.session.run(configuration)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+        print(anchors)
     }
 }
