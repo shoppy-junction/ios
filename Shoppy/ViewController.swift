@@ -178,12 +178,6 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         hideRecipeView()
     }
     
-    // MARK: - IBActions
-    
-    @IBAction func shoppingCartButton(_ sender: Any) {
-        performSegue(withIdentifier: "shoppingCartSegue", sender: self)
-    }
-    
     // MARK: - BeaconScannerDelegate
     
     func didFindBeacon(beaconScanner: BeaconScanner, beaconInfo: BeaconInfo) {

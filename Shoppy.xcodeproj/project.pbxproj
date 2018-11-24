@@ -28,6 +28,7 @@
 		EBCF0CAF21A91291001C071D /* BeaconInfo+Shoppy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAE21A91291001C071D /* BeaconInfo+Shoppy.swift */; };
 		EBCF0CB121A919D4001C071D /* ProximityPromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */; };
 		EBFBACAD21AA00EA0096236F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBACAC21AA00EA0096236F /* Recipe.swift */; };
+		EBFBACAF21AA06FA0096236F /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBACAE21AA06FA0096236F /* PointsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		EBCF0CAE21A91291001C071D /* BeaconInfo+Shoppy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeaconInfo+Shoppy.swift"; sourceTree = "<group>"; };
 		EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityPromotion.swift; sourceTree = "<group>"; };
 		EBFBACAC21AA00EA0096236F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		EBFBACAE21AA06FA0096236F /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				EBAACCA521A9C42400E22EDC /* CloseButton.swift */,
 				EBAACCA721A9C55000E22EDC /* RecipeView.swift */,
 				EBFBACAC21AA00EA0096236F /* Recipe.swift */,
+				EBFBACAE21AA06FA0096236F /* PointsViewController.swift */,
 				EB0CA60321A8695E004DE83C /* Main.storyboard */,
 				EB0CA60621A86960004DE83C /* Assets.xcassets */,
 				EB0CA60821A86960004DE83C /* LaunchScreen.storyboard */,
@@ -244,6 +247,8 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Shoppy/Pods-Shoppy-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+				"${BUILT_PRODUCTS_DIR}/UICountingLabel/UICountingLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -251,6 +256,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICountingLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -270,6 +277,7 @@
 				EB0CA60221A8695E004DE83C /* ViewController.swift in Sources */,
 				EB61877521A98DE50080BE8C /* BlurredButton.swift in Sources */,
 				EBAACCA621A9C42400E22EDC /* CloseButton.swift in Sources */,
+				EBFBACAF21AA06FA0096236F /* PointsViewController.swift in Sources */,
 				EBCF0CB121A919D4001C071D /* ProximityPromotion.swift in Sources */,
 				EBAACCA821A9C55000E22EDC /* RecipeView.swift in Sources */,
 				EBAACCAC21A9E1D400E22EDC /* BeaconScanner.swift in Sources */,

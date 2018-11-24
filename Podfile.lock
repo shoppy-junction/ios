@@ -1,20 +1,28 @@
 PODS:
   - Kingfisher (4.10.1)
   - SwiftyJSON (4.2.0)
+  - UICircularProgressRing (4.1.0)
+  - UICountingLabel (1.4.1)
 
 DEPENDENCIES:
   - Kingfisher (~> 4.10)
   - SwiftyJSON (~> 4.2)
+  - UICircularProgressRing (~> 4.1)
+  - UICountingLabel (~> 1.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Kingfisher
     - SwiftyJSON
+    - UICircularProgressRing
+    - UICountingLabel
 
 SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  UICircularProgressRing: 5a32c01f54474571b1e66e8fa050c0f83d6d981b
+  UICountingLabel: faf890b505d96312e324a86718f031fafffb0ccb
 
-PODFILE CHECKSUM: e57c3a5fc0d3919cc14ac6b940e0194fbb822051
+PODFILE CHECKSUM: d8c0103a08e14a10ebcff7fb201ab3c94590136b
 
 COCOAPODS: 1.6.0.beta.1
