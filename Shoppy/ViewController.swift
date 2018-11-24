@@ -20,12 +20,12 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     var beaconList = [Beacon]()
     var matchedPromotions = [ProximityPromotion: Int]()
     
-    var export = "minor,rssi\n"
+    var export = "minor,rssi,user_id,time\n"
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var productView: ProductView!
     @IBOutlet weak var productViewBottomConstraint: NSLayoutConstraint!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,7 +70,23 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         lines = lines.prefix(upTo: distancesNumber).map({ $0 })
         
         for line in lines {
-            export += "\(line[0]),\(line[1])\n"
+            export += "\(line[0]),\(line[1]),0,\(Date().timeIntervalSince1970)\n"
+        }
+    }
+    
+    func hideProductView() {
+        productViewBottomConstraint.constant = -224
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func showProductView() {
+        productViewBottomConstraint.constant = 16
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -82,22 +98,13 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         }
         
         productView.load(product: product)
-        
-        productViewBottomConstraint.constant = 16
-        
-        UIView.animate(withDuration: 0.25) {
-            self.view.layoutIfNeeded()
-        }
+        showProductView()
     }
     
     // MARK: - ProductViewDelegate
     
     func productView(_ productView: ProductView, addedProductToCart product: Product) {
-        productViewBottomConstraint.constant = -224
-        
-        UIView.animate(withDuration: 0.25) {
-            self.view.layoutIfNeeded()
-        }
+        hideProductView()
         
         guard let frame = sceneView.session.currentFrame else {
             return
@@ -135,27 +142,29 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         
         for promotion in ProximityPromotion.promotions {
             if promotion.matches(beacons: beaconList) {
-                print("matching")
                 if matchedPromotions.contains(where: { $0.key == promotion }) {
                     matchedPromotions[promotion] = (matchedPromotions[promotion] ?? 0) + 1
                 } else {
                     matchedPromotions[promotion] = 1
                 }
             } else {
-                print("not matching")
                 matchedPromotions[promotion] = 0
             }
             
-            if matchedPromotions[promotion] == 20 * distances.count {
-                print(promotion)
+            if matchedPromotions[promotion] == 50 {
+                DispatchQueue.main.async {
+                    self.productView.load(product: promotion.product)
+                    self.showProductView()
+                }
             }
         }
     }
     
     @IBAction func stopButton(_ sender: Any) {
-        let url = URL(string: "http://130.233.87.184:5000")!
+        let url = URL(string: "http://130.233.87.184:5000/locationdata")!
         var request = URLRequest(url: url)
         request.httpBody = export.data(using: .utf8)
+        request.httpMethod = "POST"
         
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { (data, response, error) in

@@ -10,16 +10,12 @@ import EddystoneScanner
 
 struct ProximityPromotion: Hashable {
     
-    let ranges: [Int: [Int]]
+    let beacon: Int
     let name: String
+    let product: Product
     
     static var bread: ProximityPromotion {
-        let ranges = [
-            13: [-60, 0],
-            14: [-75, -50]
-        ]
-        
-        return ProximityPromotion(ranges: ranges, name: "Bread")
+        return ProximityPromotion(beacon: 12, name: "Bread", product: .bread)
     }
     
     static var promotions: [ProximityPromotion] {
@@ -27,33 +23,20 @@ struct ProximityPromotion: Hashable {
     }
     
     static func == (lhs: ProximityPromotion, rhs: ProximityPromotion) -> Bool {
-        return lhs.name == rhs.name && lhs.ranges == rhs.ranges
+        return lhs.name == rhs.name && lhs.beacon == rhs.beacon && lhs.product == rhs.product
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(ranges)
+        hasher.combine(beacon)
         hasher.combine(name)
+        hasher.combine(product)
     }
     
     func matches(beacons: [Beacon]) -> Bool {
-        for beacon in beacons {
-            guard beacon.minor != -1 else {
-                continue
-            }
-            
-            if !ranges.keys.contains(beacon.minor) {
-                return false
-            }
-            
-            guard let range = ranges[beacon.minor] else {
-                return false
-            }
-            
-            if beacon.rssi < range[0] || beacon.rssi > range[1] {
-                return false
-            }
+        guard let closestBeacon = beacons.filter({ $0.minor != -1 }).sorted(by: { $0.rssi > $1.rssi }).first else {
+            return false
         }
         
-        return true
+        return closestBeacon.minor == beacon
     }
 }

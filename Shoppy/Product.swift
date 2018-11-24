@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Product {
+struct Product: Hashable {
     let imageName: String
     let modelName: String
     let name: String
@@ -24,7 +24,15 @@ struct Product {
         return Product(imageName: "Ham", modelName: "ham-v1", name: "Peppered Ham", price: "€1.89", pricePerWeight: "€10.50/kg", weight: "180g")
     }
     
-    static var products: [Product] {
-        return [.bread, .meat]
+    static var orangeJuice: Product {
+        return Product(imageName: "Orange Juice", modelName: "orangejuice-v2", name: "Orange Juice", price: "€0.89", pricePerWeight: "€0.85/l", weight: "1l")
     }
+    
+    static var products: [Product] {
+        return [.bread, .meat, .orangeJuice]
+    }
+}
+
+func ==(lhs: Product, rhs: Product) -> Bool {
+    return lhs.name == rhs.name
 }
