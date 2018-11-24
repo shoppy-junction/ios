@@ -203,7 +203,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         distances[beacon.minor] = beacon.rssi
         beaconList[index] = beacon
         
-        guard let closestBeacon = beaconList.filter({ $0.minor != -1 }).sorted(by: { $0.rssi > $1.rssi }).first else {
+        guard let closestBeacon = beaconList.filter({ $0.minor != -1 }).sorted(by: { $0.accuracy < $1.accuracy }).first else {
             return
         }
         

@@ -16,7 +16,7 @@ struct ProximityPromotion: Hashable {
     let product: Product
     
     static var bread: ProximityPromotion {
-        return ProximityPromotion(beacon: 12, name: "Bread", product: Product(JSON(["results": [[:]]]))!)
+        return ProximityPromotion(beacon: 12, name: "Bread", product: Product(JSON())!)
     }
     
     static var promotions: [ProximityPromotion] {
@@ -34,7 +34,7 @@ struct ProximityPromotion: Hashable {
     }
     
     func matches(beacons: [Beacon]) -> Bool {
-        guard let closestBeacon = beacons.filter({ $0.minor != -1 }).sorted(by: { $0.rssi > $1.rssi }).first else {
+        guard let closestBeacon = beacons.filter({ $0.minor != -1 }).sorted(by: { $0.accuracy < $1.accuracy }).first else {
             return false
         }
         

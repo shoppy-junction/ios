@@ -17,4 +17,18 @@ extension Beacon {
             return -1
         }
     }
+    
+    var accuracy: Float {
+        if rssi == 0 {
+            return -1 // if we cannot determine accuracy, return -1.
+        }
+        
+        let ratio = Float(rssi) / Float(txPower)
+        
+        if ratio < 1 {
+            return pow(ratio, 10)
+        } else {
+            return 0.89976 * pow(ratio, 7.7095) + 0.111
+        }
+    }
 }
