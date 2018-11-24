@@ -1,20 +1,24 @@
 PODS:
   - EddystoneScanner (1.1.9)
+  - Kingfisher (4.10.1)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
   - EddystoneScanner (~> 1.1)
+  - Kingfisher (~> 4.10)
   - SwiftyJSON (~> 4.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - EddystoneScanner
+    - Kingfisher
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   EddystoneScanner: c66a906952645e481b624947b1b1fe390d0452db
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: dd76dd592e704e4b004e48473022f25dd14cf18e
+PODFILE CHECKSUM: 869ea4726192eccc1a0b6865bb44773e1e926aa5
 
 COCOAPODS: 1.6.0.beta.1

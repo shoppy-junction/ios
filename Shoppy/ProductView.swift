@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jack Cook. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 protocol ProductViewDelegate {
@@ -39,8 +40,8 @@ class ProductView: UIVisualEffectView {
     func load(product: Product) {
         self.product = product
         
-        if let image = UIImage(named: product.imageName) {
-            imageView.image = image
+        if let url = product.imageURL {
+            imageView.kf.setImage(with: url)
         }
         
         nameLabel.text = product.name

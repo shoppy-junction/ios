@@ -10,7 +10,7 @@ import SwiftyJSON
 
 struct Product: Hashable {
     
-    let imageName: String
+    let imageURL: URL?
     let modelName: String
     let name: String
     let price: String
@@ -22,7 +22,7 @@ struct Product: Hashable {
             return nil
         }
         
-        imageName = "Pin"
+        imageURL = URL(string: result["pictureUrls"].array?.first?.dictionary?["original"]?.string ?? "")
         modelName = ""
         name = result["marketingName"].dictionary?["finnish"]?.string ?? ""
         price = "€3.24"

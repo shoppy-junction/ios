@@ -5,5 +5,6 @@ target 'Shoppy' do
 
   # Pods for Shoppy
   pod 'EddystoneScanner', '~> 1.1'
+  pod 'Kingfisher', '~> 4.10'
   pod 'SwiftyJSON', '~> 4.2'
 end
