@@ -151,4 +151,21 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
             }
         }
     }
+    
+    @IBAction func stopButton(_ sender: Any) {
+        let url = URL(string: "http://130.233.87.184:5000")!
+        var request = URLRequest(url: url)
+        request.httpBody = export.data(using: .utf8)
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let response = response else {
+                return
+            }
+            
+            print(response)
+        }
+        
+        task.resume()
+    }
 }
