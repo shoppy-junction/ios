@@ -10,7 +10,7 @@ import ARKit
 import EddystoneScanner
 import UIKit
 
-class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, ScannerDelegate {
+class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, RecipeViewDelegate, ScannerDelegate {
     
     var distances: [Int: Int] = [:]
     let distancesNumber = 3
@@ -25,6 +25,8 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var productView: ProductView!
     @IBOutlet weak var productViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var recipeView: RecipeView!
+    @IBOutlet weak var recipeViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var debugLabel: UILabel!
     
     override func viewDidLoad() {
@@ -48,6 +50,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         sceneView.session.run(configuration)
         
         productView.delegate = self
+        recipeView.delegate = self
         
         scanner.startScanning()
         scanner.delegate = self
@@ -98,6 +101,22 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         }
     }
     
+    func hideRecipeView() {
+        recipeViewBottomConstraint.constant = -192
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func showRecipeView() {
+        recipeViewBottomConstraint.constant = 16
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     // MARK: - ARSessionDelegate
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
@@ -119,13 +138,6 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
                 self.showProductView()
             }
         }
-        
-//        guard let name = anchors.first?.name, let product = Product.products.first(where: { $0.modelName == name }) else {
-//            return
-//        }
-//
-//        productView.load(product: product)
-//        showProductView()
     }
     
     // MARK: - ProductViewDelegate
@@ -134,6 +146,12 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         hideProductView()
         
         Cart.shared.add(product)
+        
+        if Cart.shared.products.contains(where: { $0.identifier == "6410381095115" }) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.showRecipeView()
+            }
+        }
         
         guard let frame = sceneView.session.currentFrame else {
             return
@@ -154,6 +172,12 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         for anchor in frame.anchors {
             sceneView.session.remove(anchor: anchor)
         }
+    }
+    
+    // MARK: - RecipeViewDelegate
+    
+    func recipeView(_ recipeView: RecipeView, dismissedWithMessage message: String?) {
+        hideRecipeView()
     }
     
     // MARK: - ScannerDelegate
@@ -208,7 +232,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     }
     
     @IBAction func stopButton(_ sender: Any) {
-        let url = URL(string: "http://130.233.87.184:5000/locationdata")!
+        let url = URL(string: "http://10.100.47.232:5000/locationdata")!
         var request = URLRequest(url: url)
         request.httpBody = export.data(using: .utf8)
         request.httpMethod = "POST"

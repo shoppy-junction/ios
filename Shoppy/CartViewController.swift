@@ -55,4 +55,8 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func doneButton(_ sender: Any) {
         dismiss(animated: true)
     }
+    
+    @IBAction func checkoutButton(_ sender: Any) {
+        
+    }
 }

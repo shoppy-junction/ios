@@ -10,6 +10,7 @@ import SwiftyJSON
 
 struct Product: Hashable {
     
+    let identifier: String
     let imageURL: URL?
     let name: String
     let price: String
@@ -17,6 +18,7 @@ struct Product: Hashable {
     let weight: String
     
     init?(_ json: JSON) {
+        identifier = json["baseEan"].string ?? ""
         imageURL = URL(string: json["img_url"].string ?? "")
         name = json["name"].string ?? ""
         price = "€\(json["price"].float ?? 0)"

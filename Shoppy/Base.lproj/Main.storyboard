@@ -122,6 +122,60 @@
                                     <outlet property="weightLabel" destination="iK4-if-GfY" id="z40-aZ-j87"/>
                                 </connections>
                             </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7II-cx-Jik" customClass="RecipeView" customModule="Shoppy" customModuleProvider="target">
+                                <rect key="frame" x="16" y="707" width="343" height="152"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SP7-9Y-dLj">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="152"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efR-ea-lFg">
+                                            <rect key="frame" x="135.5" y="20" width="72" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="fLA-Xv-q3G"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHU-GJ-tDx">
+                                            <rect key="frame" x="156.5" y="100" width="30" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="j4T-Vk-GpV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <state key="normal" title="OK"/>
+                                            <connections>
+                                                <action selector="okButtonPressed:" destination="7II-cx-Jik" eventType="touchUpInside" id="Q1k-7K-nq2"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add cheese to your cart, and you'll be able to make a sandwich!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHo-Bg-lFH">
+                                            <rect key="frame" x="16" y="49" width="311" height="43"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="NHU-GJ-tDx" secondAttribute="bottom" constant="16" id="JlM-ES-DA6"/>
+                                        <constraint firstItem="efR-ea-lFg" firstAttribute="centerX" secondItem="SP7-9Y-dLj" secondAttribute="centerX" id="QcI-Cm-FaU"/>
+                                        <constraint firstItem="NHU-GJ-tDx" firstAttribute="top" secondItem="YHo-Bg-lFH" secondAttribute="bottom" constant="8" id="XSM-9G-nV4"/>
+                                        <constraint firstItem="YHo-Bg-lFH" firstAttribute="top" secondItem="efR-ea-lFg" secondAttribute="bottom" constant="8" id="XoA-g3-2g1"/>
+                                        <constraint firstItem="NHU-GJ-tDx" firstAttribute="centerX" secondItem="SP7-9Y-dLj" secondAttribute="centerX" id="cJs-0T-2lf"/>
+                                        <constraint firstItem="YHo-Bg-lFH" firstAttribute="leading" secondItem="SP7-9Y-dLj" secondAttribute="leading" constant="16" id="g4K-xT-yfq"/>
+                                        <constraint firstItem="efR-ea-lFg" firstAttribute="top" secondItem="SP7-9Y-dLj" secondAttribute="top" constant="20" id="sLB-jh-lIE"/>
+                                        <constraint firstAttribute="trailing" secondItem="YHo-Bg-lFH" secondAttribute="trailing" constant="16" id="sz9-ZF-feP"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="152" id="X5q-Ay-pHA"/>
+                                </constraints>
+                                <blurEffect style="extraLight"/>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="YHo-Bg-lFH" id="rhQ-M7-kSI"/>
+                                    <outlet property="okButton" destination="NHU-GJ-tDx" id="39p-hs-g6z"/>
+                                    <outlet property="titleLabel" destination="efR-ea-lFg" id="qLh-cv-8gi"/>
+                                </connections>
+                            </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf4-gT-ZZL">
                                 <rect key="frame" x="16" y="36" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -174,9 +228,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7II-cx-Jik" secondAttribute="bottom" constant="-192" id="0bv-z5-O2B"/>
                             <constraint firstItem="Bwq-qM-pGk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7ms-vT-iex"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7II-cx-Jik" secondAttribute="trailing" constant="16" id="9aL-iS-754"/>
                             <constraint firstItem="cf4-gT-ZZL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="D7n-tM-qeC"/>
                             <constraint firstItem="cf4-gT-ZZL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="J8b-30-rIh"/>
+                            <constraint firstItem="7II-cx-Jik" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Prc-2v-nvi"/>
                             <constraint firstItem="Bwq-qM-pGk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TJ9-A9-zJ2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bwq-qM-pGk" secondAttribute="trailing" id="Tei-Mm-HH1"/>
                             <constraint firstItem="Ueg-VR-LLi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZT9-HE-g6g"/>
@@ -196,6 +253,8 @@
                         <outlet property="debugLabel" destination="cf4-gT-ZZL" id="TYd-la-4oy"/>
                         <outlet property="productView" destination="Ueg-VR-LLi" id="f7g-hL-IoG"/>
                         <outlet property="productViewBottomConstraint" destination="dWc-uK-Brp" id="PGT-dZ-6v3"/>
+                        <outlet property="recipeView" destination="7II-cx-Jik" id="N55-xW-vmU"/>
+                        <outlet property="recipeViewBottomConstraint" destination="0bv-z5-O2B" id="BFf-Ja-Cfb"/>
                         <outlet property="sceneView" destination="Bwq-qM-pGk" id="Or1-my-1Eo"/>
                         <segue destination="VG1-AC-QB1" kind="presentation" identifier="shoppingCartSegue" modalPresentationStyle="overFullScreen" id="lUK-CZ-sUG"/>
                     </connections>
@@ -287,9 +346,14 @@
                         <viewLayoutGuide key="safeArea" id="ibo-TL-0yv"/>
                     </view>
                     <navigationItem key="navigationItem" id="fdA-Lv-jW6">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="qAY-wk-WQc">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="drp-3F-td6">
                             <connections>
-                                <action selector="doneButton:" destination="h17-Nz-Oz5" id="GN0-F9-Wv9"/>
+                                <action selector="doneButton:" destination="h17-Nz-Oz5" id="ORF-Ce-wnl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Checkout" id="qAY-wk-WQc">
+                            <connections>
+                                <action selector="checkoutButton:" destination="h17-Nz-Oz5" id="XRl-BI-4Pk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
