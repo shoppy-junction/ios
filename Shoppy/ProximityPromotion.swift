@@ -33,7 +33,7 @@ struct ProximityPromotion: Hashable {
     }
     
     func matches(distances: [Int: Int]) -> Bool {
-        guard let closestBeacon = distances.min(by: { $0.value > $1.value || $1.key == -1 })?.key else {
+        guard let closestBeacon = distances.filter({ $0.key != -1 }).min(by: { $0.value > $1.value })?.key else {
             return false
         }
         

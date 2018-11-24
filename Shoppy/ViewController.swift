@@ -19,6 +19,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     var matchedPromotions = [ProximityPromotion: Int]()
     
     var export = "minor,rssi,user_id,time\n"
+    var purchaseExport = "time,user_id,ean,price\n"
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var productView: ProductView!
@@ -148,6 +149,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         hideProductView()
         
         Cart.shared.add(product)
+        purchaseExport += "\(Date().timeIntervalSince1970),0,\(product.identifier),\(product.price)\n"
         
         if Cart.shared.products.contains(where: { $0.identifier == "6410381095115" }) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -200,6 +202,17 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         }
         
         task.resume()
+        
+        let purchaseURL = URL(string: "http://10.100.18.2:5000/purchase")!
+        var purchaseRequest = URLRequest(url: purchaseURL)
+        purchaseRequest.httpBody = purchaseExport.data(using: .utf8)
+        purchaseRequest.httpMethod = "POST"
+        
+        let purchaseTask = session.dataTask(with: purchaseRequest) { (data, response, error) in
+            
+        }
+        
+        purchaseTask.resume()
     }
     
     @IBAction func shoppingCartButton(_ sender: Any) {
@@ -220,7 +233,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         print("UPDATE: \(beaconInfo.description)")
         distances[beaconInfo.minor] = beaconInfo.RSSI
         
-        guard let closestBeacon = distances.min(by: { $0.value > $1.value || $1.key == -1 }) else {
+        guard let closestBeacon = distances.filter({ $0.key != -1 }).min(by: { $0.value > $1.value }) else {
             return
         }
         
