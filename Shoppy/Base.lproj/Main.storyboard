@@ -22,9 +22,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ueg-VR-LLi" customClass="ProductView" customModule="Shoppy" customModuleProvider="target">
-                                <rect key="frame" x="16" y="395" width="343" height="256"/>
+                                <rect key="frame" x="16" y="707" width="343" height="184"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Zdj-YO-8Wf">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="256"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="184"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ham" translatesAutoresizingMaskIntoConstraints="NO" id="EAi-UA-Nws">
@@ -64,6 +64,13 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIe-Mv-feL">
+                                            <rect key="frame" x="16" y="132" width="311" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="mw2-da-ci2"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="EAi-UA-Nws" firstAttribute="leading" secondItem="Zdj-YO-8Wf" secondAttribute="leading" constant="12" id="0jE-qo-dlq"/>
@@ -71,18 +78,21 @@
                                         <constraint firstItem="3vP-DD-UwS" firstAttribute="leading" secondItem="2yh-Im-Th9" secondAttribute="trailing" constant="8" id="9ax-1C-08J"/>
                                         <constraint firstItem="PIX-1k-OPr" firstAttribute="leading" secondItem="EAi-UA-Nws" secondAttribute="trailing" constant="16" id="F7w-jm-cNR"/>
                                         <constraint firstItem="21g-Pz-7wu" firstAttribute="leading" secondItem="PIX-1k-OPr" secondAttribute="leading" id="FeZ-DC-Q5V"/>
+                                        <constraint firstAttribute="trailing" secondItem="GIe-Mv-feL" secondAttribute="trailing" constant="16" id="RKC-bD-943"/>
                                         <constraint firstItem="iK4-if-GfY" firstAttribute="bottom" secondItem="PIX-1k-OPr" secondAttribute="bottom" id="SGc-1l-RUO"/>
                                         <constraint firstItem="iK4-if-GfY" firstAttribute="top" secondItem="PIX-1k-OPr" secondAttribute="top" id="VCc-jP-Lm4"/>
+                                        <constraint firstAttribute="bottom" secondItem="GIe-Mv-feL" secondAttribute="bottom" constant="16" id="Xad-e4-Kcj"/>
                                         <constraint firstItem="iK4-if-GfY" firstAttribute="leading" secondItem="PIX-1k-OPr" secondAttribute="trailing" constant="12" id="bOv-eo-lq9"/>
                                         <constraint firstItem="2yh-Im-Th9" firstAttribute="top" secondItem="EAi-UA-Nws" secondAttribute="bottom" constant="8" id="dd5-JC-t5k"/>
                                         <constraint firstItem="21g-Pz-7wu" firstAttribute="bottom" secondItem="EAi-UA-Nws" secondAttribute="bottom" constant="-8" id="gZm-ah-PxD"/>
                                         <constraint firstItem="EAi-UA-Nws" firstAttribute="top" secondItem="Zdj-YO-8Wf" secondAttribute="top" constant="12" id="kGa-eg-n7A"/>
                                         <constraint firstItem="3vP-DD-UwS" firstAttribute="bottom" secondItem="2yh-Im-Th9" secondAttribute="bottom" constant="-2" id="kT7-R0-MYr"/>
                                         <constraint firstItem="PIX-1k-OPr" firstAttribute="top" secondItem="EAi-UA-Nws" secondAttribute="top" constant="8" id="yEP-JG-yJr"/>
+                                        <constraint firstItem="GIe-Mv-feL" firstAttribute="leading" secondItem="Zdj-YO-8Wf" secondAttribute="leading" constant="16" id="yge-ba-nRc"/>
                                     </constraints>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="256" id="q4E-Wk-yFb"/>
+                                    <constraint firstAttribute="height" constant="184" id="q4E-Wk-yFb"/>
                                 </constraints>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
@@ -94,12 +104,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bwq-qM-pGk" secondAttribute="trailing" id="Tei-Mm-HH1"/>
                             <constraint firstItem="Ueg-VR-LLi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZT9-HE-g6g"/>
                             <constraint firstAttribute="bottom" secondItem="Bwq-qM-pGk" secondAttribute="bottom" id="cep-Qy-a5d"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ueg-VR-LLi" secondAttribute="bottom" constant="16" id="dWc-uK-Brp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ueg-VR-LLi" secondAttribute="bottom" constant="-224" id="dWc-uK-Brp"/>
                             <constraint firstAttribute="trailing" secondItem="Ueg-VR-LLi" secondAttribute="trailing" constant="16" id="fFH-th-Tvo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="productView" destination="Ueg-VR-LLi" id="f7g-hL-IoG"/>
+                        <outlet property="productViewBottomConstraint" destination="dWc-uK-Brp" id="PGT-dZ-6v3"/>
                         <outlet property="sceneView" destination="Bwq-qM-pGk" id="Or1-my-1Eo"/>
                     </connections>
                 </viewController>

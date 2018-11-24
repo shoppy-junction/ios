@@ -12,6 +12,8 @@ import UIKit
 class ViewController: UIViewController, ARSessionDelegate {
     
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var productView: ProductView!
+    @IBOutlet weak var productViewBottomConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +34,12 @@ class ViewController: UIViewController, ARSessionDelegate {
     }
     
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        guard let productView = Bundle.main.loadNibNamed("ProductView", owner: self, options: nil)?.first as? ProductView else {
-            return
+        print(anchors)
+        productViewBottomConstraint.constant = 16
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
         }
-        
-        let blurEffect = UIBlurEffect(style: .light)
-        let visualEffectView = UIVisualEffectView(effect: blurEffect)
-        visualEffectView.contentView.addSubview(productView)
-        
-        visualEffectView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        productView.frame = visualEffectView.bounds
-        view.addSubview(productView)
     }
     
     func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
