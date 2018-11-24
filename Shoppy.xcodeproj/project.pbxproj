@@ -17,6 +17,7 @@
 		EBCF0CA721A8CFD0001C071D /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CA621A8CFD0001C071D /* ProductView.swift */; };
 		EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAA21A8EB31001C071D /* Product.swift */; };
 		EBCF0CAD21A8F3A7001C071D /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAC21A8F3A7001C071D /* Cart.swift */; };
+		EBCF0CAF21A91291001C071D /* Beacon+Shoppy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		EBCF0CA621A8CFD0001C071D /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		EBCF0CAA21A8EB31001C071D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EBCF0CAC21A8F3A7001C071D /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Beacon+Shoppy.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				EBCF0CA621A8CFD0001C071D /* ProductView.swift */,
 				EBCF0CAA21A8EB31001C071D /* Product.swift */,
 				EBCF0CAC21A8F3A7001C071D /* Cart.swift */,
+				EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */,
 				EB0CA60321A8695E004DE83C /* Main.storyboard */,
 				EB0CA60621A86960004DE83C /* Assets.xcassets */,
 				EB0CA60821A86960004DE83C /* LaunchScreen.storyboard */,
@@ -112,6 +115,7 @@
 				EB0CA5F821A8695E004DE83C /* Sources */,
 				EB0CA5F921A8695E004DE83C /* Frameworks */,
 				EB0CA5FA21A8695E004DE83C /* Resources */,
+				7C916F130F185952A53E6AD9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,6 +195,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7C916F130F185952A53E6AD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Shoppy/Pods-Shoppy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EddystoneScanner/EddystoneScanner.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EddystoneScanner.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Shoppy/Pods-Shoppy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -198,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCF0CAF21A91291001C071D /* Beacon+Shoppy.swift in Sources */,
 				EB0CA60221A8695E004DE83C /* ViewController.swift in Sources */,
 				EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */,
 				EBCF0CAD21A8F3A7001C071D /* Cart.swift in Sources */,

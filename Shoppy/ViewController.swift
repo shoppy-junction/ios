@@ -7,17 +7,19 @@
 //
 
 import ARKit
-import CoreBluetooth
+import EddystoneScanner
 import UIKit
 
-class ViewController: UIViewController, ARSessionDelegate, CBCentralManagerDelegate, ProductViewDelegate {
+class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, ScannerDelegate {
     
-    var bluetoothManager: CBCentralManager!
-    var distances: [String: (String, Int)] = [:]
-    let distancesNumber = 5
+    var distances: [Int: Int] = [:]
+    let distancesNumber = 2
     var updateTimer: Timer!
     
-    var export = "uuid,name,rssi\n"
+    let scanner = EddystoneScanner.Scanner()
+    var beaconList = [Beacon]()
+    
+    var export = "minor,rssi\n"
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var productView: ProductView!
@@ -38,8 +40,8 @@ class ViewController: UIViewController, ARSessionDelegate, CBCentralManagerDeleg
         
         productView.delegate = self
         
-        bluetoothManager = CBCentralManager(delegate: self, queue: nil)
-        bluetoothManager.delegate = self
+        scanner.startScanning()
+        scanner.delegate = self
         
         updateTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(saveBluetoothData), userInfo: nil, repeats: true)
     }
@@ -53,15 +55,21 @@ class ViewController: UIViewController, ARSessionDelegate, CBCentralManagerDeleg
             return
         }
         
-        var lines = distances.map { (key: String, value: (String, Int)) -> [String] in
-            return [key, value.0, String(value.1)]
+        var lines = [[Int]]()
+        
+        for (key, value) in distances {
+            guard key != -1 else {
+                continue
+            }
+            
+            lines.append([key, value])
         }
         
-        lines.sort(by: { $0[2] < $1[2] })
+        lines.sort(by: { $0[1] < $1[1] })
         lines = lines.prefix(upTo: distancesNumber).map({ $0 })
         
         for line in lines {
-            export += "\(line[0]),\(line[1]),\(line[2])\n"
+            export += "\(line[0]),\(line[1])\n"
         }
     }
     
@@ -85,22 +93,6 @@ class ViewController: UIViewController, ARSessionDelegate, CBCentralManagerDeleg
         print("removed anchor")
     }
     
-    // MARK: - CBCentralManagerDelegate
-    
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        if central.state == .poweredOn {
-            bluetoothManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
-        }
-    }
-    
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        guard let name = peripheral.name else {
-            return
-        }
-        
-        distances[peripheral.identifier.uuidString] = (name, RSSI.intValue)
-    }
-    
     // MARK: - ProductViewDelegate
     
     func productView(_ productView: ProductView, addedProductToCart product: Product) {
@@ -119,5 +111,32 @@ class ViewController: UIViewController, ARSessionDelegate, CBCentralManagerDeleg
         }
         
         print(export)
+    }
+    
+    // MARK: - ScannerDelegate
+    
+    func didFindBeacon(scanner: EddystoneScanner.Scanner, beacon: Beacon) {
+        beaconList.append(beacon)
+        print("found: \(beacon.description)")
+    }
+    
+    func didLoseBeacon(scanner: EddystoneScanner.Scanner, beacon: Beacon) {
+        guard let index = beaconList.index(of: beacon) else {
+            return
+        }
+        
+        print("lost: \(beacon.description)")
+        
+        beaconList.remove(at: index)
+    }
+    
+    func didUpdateBeacon(scanner: EddystoneScanner.Scanner, beacon: Beacon) {
+        guard let index = beaconList.index(of: beacon) else {
+            beaconList.append(beacon)
+            return
+        }
+        
+        distances[beacon.minor] = beacon.rssi
+        beaconList[index] = beacon
     }
 }

@@ -4,4 +4,5 @@ target 'Shoppy' do
   use_frameworks!
 
   # Pods for Shoppy
+  pod 'EddystoneScanner', '~> 1.1'
 end
