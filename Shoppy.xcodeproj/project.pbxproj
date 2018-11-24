@@ -15,6 +15,7 @@
 		EB0CA60A21A86960004DE83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60821A86960004DE83C /* LaunchScreen.storyboard */; };
 		EBCF0CA321A87BBB001C071D /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF0CA221A87BBB001C071D /* ARKit.framework */; };
 		EBCF0CA721A8CFD0001C071D /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CA621A8CFD0001C071D /* ProductView.swift */; };
+		EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAA21A8EB31001C071D /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EB0CA60B21A86960004DE83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBCF0CA221A87BBB001C071D /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		EBCF0CA621A8CFD0001C071D /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		EBCF0CAA21A8EB31001C071D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				EB0CA5FF21A8695E004DE83C /* AppDelegate.swift */,
 				EB0CA60121A8695E004DE83C /* ViewController.swift */,
 				EBCF0CA621A8CFD0001C071D /* ProductView.swift */,
+				EBCF0CAA21A8EB31001C071D /* Product.swift */,
 				EB0CA60321A8695E004DE83C /* Main.storyboard */,
 				EB0CA60621A86960004DE83C /* Assets.xcassets */,
 				EB0CA60821A86960004DE83C /* LaunchScreen.storyboard */,
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB0CA60221A8695E004DE83C /* ViewController.swift in Sources */,
+				EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */,
 				EBCF0CA721A8CFD0001C071D /* ProductView.swift in Sources */,
 				EB0CA60021A8695E004DE83C /* AppDelegate.swift in Sources */,
 			);

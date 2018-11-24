@@ -8,12 +8,51 @@
 
 import UIKit
 
+protocol ProductViewDelegate {
+    func productView(_ productView: ProductView, addedProductToCart product: Product)
+}
+
 class ProductView: UIVisualEffectView {
+    
+    var delegate: ProductViewDelegate?
+    var product: Product?
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var brandLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var pricePerWeightLabel: UILabel!
+    @IBOutlet weak var addToCartButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         clipsToBounds = true
         layer.cornerRadius = 8
+        
+        addToCartButton.backgroundColor = addToCartButton.tintColor
+        addToCartButton.setTitleColor(.white, for: .normal)
+    }
+    
+    func load(product: Product) {
+        self.product = product
+        
+        if let image = UIImage(named: product.imageName) {
+            imageView.image = image
+        }
+        
+        nameLabel.text = product.name
+        weightLabel.text = product.weight
+        priceLabel.text = product.price
+        pricePerWeightLabel.text = product.pricePerWeight
+    }
+    
+    @IBAction func addedToCart(_ sender: UIButton) {
+        guard let product = product else {
+            return
+        }
+        
+        delegate?.productView(self, addedProductToCart: product)
     }
 }

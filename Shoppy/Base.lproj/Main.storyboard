@@ -69,7 +69,10 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="mw2-da-ci2"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" title="Add to Cart"/>
+                                            <connections>
+                                                <action selector="addedToCart:" destination="Ueg-VR-LLi" eventType="touchUpInside" id="j3k-Nl-F9I"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -95,6 +98,15 @@
                                     <constraint firstAttribute="height" constant="184" id="q4E-Wk-yFb"/>
                                 </constraints>
                                 <blurEffect style="extraLight"/>
+                                <connections>
+                                    <outlet property="addToCartButton" destination="GIe-Mv-feL" id="2h9-ib-eEd"/>
+                                    <outlet property="brandLabel" destination="21g-Pz-7wu" id="rq2-jI-6sJ"/>
+                                    <outlet property="imageView" destination="EAi-UA-Nws" id="Le9-aA-5Vt"/>
+                                    <outlet property="nameLabel" destination="PIX-1k-OPr" id="Ngm-Lk-3Kc"/>
+                                    <outlet property="priceLabel" destination="2yh-Im-Th9" id="uAY-AT-K4X"/>
+                                    <outlet property="pricePerWeightLabel" destination="3vP-DD-UwS" id="qXp-pb-ooW"/>
+                                    <outlet property="weightLabel" destination="iK4-if-GfY" id="z40-aZ-j87"/>
+                                </connections>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
