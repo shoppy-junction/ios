@@ -32,6 +32,20 @@ class ViewController: UIViewController, ARSessionDelegate {
     }
     
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-        print(anchors)
+        guard let productView = Bundle.main.loadNibNamed("ProductView", owner: self, options: nil)?.first as? ProductView else {
+            return
+        }
+        
+        let blurEffect = UIBlurEffect(style: .light)
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.contentView.addSubview(productView)
+        
+        visualEffectView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        productView.frame = visualEffectView.bounds
+        view.addSubview(productView)
+    }
+    
+    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
+        print("removed anchor")
     }
 }
