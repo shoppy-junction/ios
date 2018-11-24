@@ -18,6 +18,7 @@
 		EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAA21A8EB31001C071D /* Product.swift */; };
 		EBCF0CAD21A8F3A7001C071D /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAC21A8F3A7001C071D /* Cart.swift */; };
 		EBCF0CAF21A91291001C071D /* Beacon+Shoppy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */; };
+		EBCF0CB121A919D4001C071D /* ProximityPromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		EBCF0CAA21A8EB31001C071D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EBCF0CAC21A8F3A7001C071D /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Beacon+Shoppy.swift"; sourceTree = "<group>"; };
+		EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityPromotion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				EBCF0CA621A8CFD0001C071D /* ProductView.swift */,
 				EBCF0CAA21A8EB31001C071D /* Product.swift */,
 				EBCF0CAC21A8F3A7001C071D /* Cart.swift */,
+				EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */,
 				EBCF0CAE21A91291001C071D /* Beacon+Shoppy.swift */,
 				EB0CA60321A8695E004DE83C /* Main.storyboard */,
 				EB0CA60621A86960004DE83C /* Assets.xcassets */,
@@ -226,6 +229,7 @@
 			files = (
 				EBCF0CAF21A91291001C071D /* Beacon+Shoppy.swift in Sources */,
 				EB0CA60221A8695E004DE83C /* ViewController.swift in Sources */,
+				EBCF0CB121A919D4001C071D /* ProximityPromotion.swift in Sources */,
 				EBCF0CAB21A8EB31001C071D /* Product.swift in Sources */,
 				EBCF0CAD21A8F3A7001C071D /* Cart.swift in Sources */,
 				EBCF0CA721A8CFD0001C071D /* ProductView.swift in Sources */,

@@ -18,6 +18,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     
     let scanner = EddystoneScanner.Scanner()
     var beaconList = [Beacon]()
+    var matchedPromotions = [ProximityPromotion: Int]()
     
     var export = "minor,rssi\n"
     
@@ -51,7 +52,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     }
     
     @objc func saveBluetoothData() {
-        guard distances.count >= distancesNumber else {
+        guard distances.count >= distancesNumber + 1 else {
             return
         }
         
@@ -89,10 +90,6 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         }
     }
     
-    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
-        print("removed anchor")
-    }
-    
     // MARK: - ProductViewDelegate
     
     func productView(_ productView: ProductView, addedProductToCart product: Product) {
@@ -117,15 +114,12 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     
     func didFindBeacon(scanner: EddystoneScanner.Scanner, beacon: Beacon) {
         beaconList.append(beacon)
-        print("found: \(beacon.description)")
     }
     
     func didLoseBeacon(scanner: EddystoneScanner.Scanner, beacon: Beacon) {
         guard let index = beaconList.index(of: beacon) else {
             return
         }
-        
-        print("lost: \(beacon.description)")
         
         beaconList.remove(at: index)
     }
@@ -138,5 +132,23 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         
         distances[beacon.minor] = beacon.rssi
         beaconList[index] = beacon
+        
+        for promotion in ProximityPromotion.promotions {
+            if promotion.matches(beacons: beaconList) {
+                print("matching")
+                if matchedPromotions.contains(where: { $0.key == promotion }) {
+                    matchedPromotions[promotion] = (matchedPromotions[promotion] ?? 0) + 1
+                } else {
+                    matchedPromotions[promotion] = 1
+                }
+            } else {
+                print("not matching")
+                matchedPromotions[promotion] = 0
+            }
+            
+            if matchedPromotions[promotion] == 20 * distances.count {
+                print(promotion)
+            }
+        }
     }
 }
