@@ -26,6 +26,15 @@ struct Product: Hashable {
         weight = "300g"
     }
     
+    init(imageURL: String, name: String, price: String, pricePerWeight: String, weight: String) {
+        self.identifier = UUID().uuidString
+        self.imageURL = URL(string: imageURL)
+        self.name = name
+        self.price = price
+        self.pricePerWeight = pricePerWeight
+        self.weight = weight
+    }
+    
     static func requestProductWithEAN(_ ean: String, completion: @escaping (JSON) -> Void) {
         let url = URL(string: "http://10.100.17.47:5000/products/\(ean)")!
         let request = URLRequest(url: url)

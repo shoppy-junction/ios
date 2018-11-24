@@ -16,7 +16,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     var updateTimer: Timer!
     
     var beaconScanner: BeaconScanner!
-    var matchedPromotions = [ProximityPromotion: Int]()
+    var matchedPromotions = [String: Int]()
     
     var export = "minor,rssi,user_id,time\n"
     var purchaseExport = "time,user_id,ean,price\n"
@@ -243,16 +243,16 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         
         for promotion in ProximityPromotion.promotions {
             if promotion.matches(distances: distances) {
-                if matchedPromotions.contains(where: { $0.key == promotion }) {
-                    matchedPromotions[promotion] = (matchedPromotions[promotion] ?? 0) + 1
+                if matchedPromotions.contains(where: { $0.key == promotion.product.identifier }) {
+                    matchedPromotions[promotion.product.identifier] = (matchedPromotions[promotion.product.identifier] ?? 0) + 1
                 } else {
-                    matchedPromotions[promotion] = 1
+                    matchedPromotions[promotion.product.identifier] = 1
                 }
             } else {
-                matchedPromotions[promotion] = 0
+                matchedPromotions[promotion.product.identifier] = 0
             }
             
-            if matchedPromotions[promotion] == 50 {
+            if matchedPromotions[promotion.product.identifier] == 50 {
                 DispatchQueue.main.async {
                     self.productView.load(product: promotion.product)
                     self.showProductView()
