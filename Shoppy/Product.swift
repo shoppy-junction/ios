@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-struct Product: Hashable {
+struct Product {
     
     let identifier: String
     let imageURL: URL?
@@ -26,8 +26,8 @@ struct Product: Hashable {
         weight = "300g"
     }
     
-    init(imageURL: String, name: String, price: String, pricePerWeight: String, weight: String) {
-        self.identifier = UUID().uuidString
+    init(identifier: String, imageURL: String, name: String, price: String, pricePerWeight: String, weight: String) {
+        self.identifier = identifier
         self.imageURL = URL(string: imageURL)
         self.name = name
         self.price = price
@@ -51,8 +51,4 @@ struct Product: Hashable {
         
         task.resume()
     }
-}
-
-func ==(lhs: Product, rhs: Product) -> Bool {
-    return lhs.name == rhs.name
 }

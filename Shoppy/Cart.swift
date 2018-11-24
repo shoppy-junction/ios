@@ -25,6 +25,6 @@ class Cart {
     }
     
     func remove(_ product: Product) {
-        products.removeAll(where: { $0.name == product.name })
+        products.removeAll(where: { $0.identifier == product.identifier })
     }
 }

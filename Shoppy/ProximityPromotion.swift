@@ -8,29 +8,19 @@
 
 import SwiftyJSON
 
-struct ProximityPromotion: Hashable {
+struct ProximityPromotion {
     
     let beacon: Int
     let name: String
     let product: Product
     
     static var bread: ProximityPromotion {
-        let product = Product(imageURL: "https://public.keskofiles.com/f/k-ruoka/product/6410402003488?w=800&h=500&fm=jpg&q=90&fit=clip&bg=fff", name: "Loaf of Bread", price: "€1.50", pricePerWeight: "€2.50/kg", weight: "300g")
+        let product = Product(identifier: "6410402003488", imageURL: "https://public.keskofiles.com/f/k-ruoka/product/6410402003488?w=800&h=500&fm=jpg&q=90&fit=clip&bg=fff", name: "Loaf of Bread", price: "€1.50", pricePerWeight: "€2.50/kg", weight: "300g")
         return ProximityPromotion(beacon: 13, name: "Bread", product: product)
     }
     
     static var promotions: [ProximityPromotion] {
         return [.bread]
-    }
-    
-    static func == (lhs: ProximityPromotion, rhs: ProximityPromotion) -> Bool {
-        return lhs.name == rhs.name && lhs.beacon == rhs.beacon && lhs.product == rhs.product
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(beacon)
-        hasher.combine(name)
-        hasher.combine(product)
     }
     
     func matches(distances: [Int: Int]) -> Bool {
