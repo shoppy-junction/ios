@@ -27,6 +27,10 @@ class RecipeView: UIVisualEffectView {
         layer.cornerRadius = 8
     }
     
+    func load(recipe: Recipe) {
+        descriptionLabel.text = recipe.tip
+    }
+    
     @IBAction func okButtonPressed(_ sender: Any) {
         delegate?.recipeView(self, dismissedWithMessage: descriptionLabel.text)
     }

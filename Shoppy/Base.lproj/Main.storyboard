@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ueg-VR-LLi" customClass="ProductView" customModule="Shoppy" customModuleProvider="target">
-                                <rect key="frame" x="16" y="707" width="343" height="184"/>
+                                <rect key="frame" x="16" y="467" width="343" height="184"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Zdj-YO-8Wf">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="184"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,12 +42,6 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirkka" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21g-Pz-7wu">
                                             <rect key="frame" x="92" y="47" width="47" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iK4-if-GfY">
-                                            <rect key="frame" x="226" y="20" width="39" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -86,6 +80,12 @@
                                                 <action selector="closeButtonPressed:" destination="Ueg-VR-LLi" eventType="touchUpInside" id="J9y-Jo-uGo"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iK4-if-GfY">
+                                            <rect key="frame" x="226" y="20" width="39" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="EAi-UA-Nws" firstAttribute="leading" secondItem="Zdj-YO-8Wf" secondAttribute="leading" constant="12" id="0jE-qo-dlq"/>
@@ -95,6 +95,7 @@
                                         <constraint firstItem="PIX-1k-OPr" firstAttribute="leading" secondItem="EAi-UA-Nws" secondAttribute="trailing" constant="16" id="F7w-jm-cNR"/>
                                         <constraint firstItem="21g-Pz-7wu" firstAttribute="leading" secondItem="PIX-1k-OPr" secondAttribute="leading" id="FeZ-DC-Q5V"/>
                                         <constraint firstAttribute="trailing" secondItem="GIe-Mv-feL" secondAttribute="trailing" constant="16" id="RKC-bD-943"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iK4-if-GfY" secondAttribute="trailing" constant="16" id="SBm-Tq-Rg8"/>
                                         <constraint firstItem="iK4-if-GfY" firstAttribute="bottom" secondItem="PIX-1k-OPr" secondAttribute="bottom" id="SGc-1l-RUO"/>
                                         <constraint firstItem="2xG-Vz-ofT" firstAttribute="top" secondItem="Zdj-YO-8Wf" secondAttribute="top" constant="8" id="Ueg-iz-gtr"/>
                                         <constraint firstItem="iK4-if-GfY" firstAttribute="top" secondItem="PIX-1k-OPr" secondAttribute="top" id="VCc-jP-Lm4"/>
@@ -224,7 +225,7 @@
                             <constraint firstItem="Ueg-VR-LLi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZT9-HE-g6g"/>
                             <constraint firstAttribute="bottom" secondItem="Bwq-qM-pGk" secondAttribute="bottom" id="cep-Qy-a5d"/>
                             <constraint firstItem="bhe-AL-QbJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="cf0-DZ-Zxa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ueg-VR-LLi" secondAttribute="bottom" constant="-224" id="dWc-uK-Brp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ueg-VR-LLi" secondAttribute="bottom" constant="16" id="dWc-uK-Brp"/>
                             <constraint firstAttribute="trailing" secondItem="Ueg-VR-LLi" secondAttribute="trailing" constant="16" id="fFH-th-Tvo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bhe-AL-QbJ" secondAttribute="trailing" constant="16" id="gzZ-8L-YoM"/>
                         </constraints>

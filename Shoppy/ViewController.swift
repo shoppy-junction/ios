@@ -34,24 +34,16 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         
         let configuration = ARWorldTrackingConfiguration()
         
-        guard let referenceObjects = ARReferenceObject.referenceObjects(inGroupNamed: "Products", bundle: nil) else {
-            fatalError()
-        }
-        
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "ImageProducts", bundle: nil) else {
             fatalError()
         }
         
-        configuration.detectionObjects = referenceObjects
         configuration.detectionImages = referenceImages
         sceneView.session.delegate = self
         sceneView.session.run(configuration)
         
         productView.delegate = self
         recipeView.delegate = self
-        
-//        scanner.startScanning()
-//        scanner.delegate = self
         
         beaconScanner = BeaconScanner()
         beaconScanner.delegate = self
@@ -150,8 +142,11 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
         Cart.shared.add(product)
         purchaseExport += "\(Date().timeIntervalSince1970),0,\(product.identifier),\(product.price)\n"
         
-        if Cart.shared.products.contains(where: { $0.identifier == "6410381095115" }) {
+        if Recipe.hamAndCheese.shouldDisplay() {
+            Recipe.hamAndCheeseShown = true
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.recipeView.load(recipe: Recipe.hamAndCheese)
                 self.showRecipeView()
             }
         }
