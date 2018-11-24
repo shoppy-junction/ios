@@ -16,7 +16,7 @@ struct ProximityPromotion: Hashable {
     
     static var bread: ProximityPromotion {
         let product = Product(imageURL: "https://public.keskofiles.com/f/k-ruoka/product/6410402003488?w=800&h=500&fm=jpg&q=90&fit=clip&bg=fff", name: "Loaf of Bread", price: "€1.50", pricePerWeight: "€2.50/kg", weight: "300g")
-        return ProximityPromotion(beacon: 12, name: "Bread", product: product)
+        return ProximityPromotion(beacon: 13, name: "Bread", product: product)
     }
     
     static var promotions: [ProximityPromotion] {

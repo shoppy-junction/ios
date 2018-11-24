@@ -26,7 +26,6 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     @IBOutlet weak var productViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var recipeView: RecipeView!
     @IBOutlet weak var recipeViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var debugLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -186,35 +185,6 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     
     // MARK: - IBActions
     
-    @IBAction func stopButton(_ sender: Any) {
-        let url = URL(string: "http://10.100.18.2:5000/locationdata")!
-        var request = URLRequest(url: url)
-        request.httpBody = export.data(using: .utf8)
-        request.httpMethod = "POST"
-        
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            guard let response = response else {
-                return
-            }
-            
-            print(response)
-        }
-        
-        task.resume()
-        
-        let purchaseURL = URL(string: "http://10.100.18.2:5000/purchase")!
-        var purchaseRequest = URLRequest(url: purchaseURL)
-        purchaseRequest.httpBody = purchaseExport.data(using: .utf8)
-        purchaseRequest.httpMethod = "POST"
-        
-        let purchaseTask = session.dataTask(with: purchaseRequest) { (data, response, error) in
-            
-        }
-        
-        purchaseTask.resume()
-    }
-    
     @IBAction func shoppingCartButton(_ sender: Any) {
         performSegue(withIdentifier: "shoppingCartSegue", sender: self)
     }
@@ -222,37 +192,28 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     // MARK: - BeaconScannerDelegate
     
     func didFindBeacon(beaconScanner: BeaconScanner, beaconInfo: BeaconInfo) {
-        print("FIND: \(beaconInfo.description)")
+        // found beacon
     }
     
     func didLoseBeacon(beaconScanner: BeaconScanner, beaconInfo: BeaconInfo) {
-        print("LOST: \(beaconInfo.description)")
+        // lost beacon
     }
     
     func didUpdateBeacon(beaconScanner: BeaconScanner, beaconInfo: BeaconInfo) {
-        print("UPDATE: \(beaconInfo.description)")
         distances[beaconInfo.minor] = beaconInfo.RSSI
-        
-        guard let closestBeacon = distances.filter({ $0.key != -1 }).min(by: { $0.value > $1.value }) else {
-            return
-        }
-        
-        DispatchQueue.main.async {
-            self.debugLabel.text = String(closestBeacon.key)
-        }
         
         for promotion in ProximityPromotion.promotions {
             if promotion.matches(distances: distances) {
-                if matchedPromotions.contains(where: { $0.key == promotion.product.identifier }) {
-                    matchedPromotions[promotion.product.identifier] = (matchedPromotions[promotion.product.identifier] ?? 0) + 1
+                if matchedPromotions.contains(where: { $0.key == promotion.product.name }) {
+                    matchedPromotions[promotion.product.name] = (matchedPromotions[promotion.product.name] ?? 0) + 1
                 } else {
-                    matchedPromotions[promotion.product.identifier] = 1
+                    matchedPromotions[promotion.product.name] = 1
                 }
             } else {
-                matchedPromotions[promotion.product.identifier] = 0
+                matchedPromotions[promotion.product.name] = 0
             }
             
-            if matchedPromotions[promotion.product.identifier] == 50 {
+            if matchedPromotions[promotion.product.name] == 50 {
                 DispatchQueue.main.async {
                     self.productView.load(product: promotion.product)
                     self.showProductView()
@@ -262,6 +223,6 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     }
     
     func didObserveURLBeacon(beaconScanner: BeaconScanner, URL: NSURL, RSSI: Int) {
-        print("URL SEEN: \(URL), RSSI: \(RSSI)")
+        // observed URL
     }
 }
