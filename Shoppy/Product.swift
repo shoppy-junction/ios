@@ -17,15 +17,15 @@ struct Product: Hashable {
     let weight: String
     
     init?(_ json: JSON) {
-        imageURL = URL(string: json["pictureUrls"].array?.first?.dictionary?["original"]?.string ?? "")
+        imageURL = URL(string: json["img_url"].string ?? "")
         name = json["name"].string ?? ""
-        price = "€" + (json["price"].string ?? "")
+        price = "€\(json["price"].float ?? 0)"
         pricePerWeight = "€4.25/kg"
         weight = "300g"
     }
     
     static func requestProductWithEAN(_ ean: String, completion: @escaping (JSON) -> Void) {
-        let url = URL(string: "http://130.233.86.149:5000/products/\(ean)")!
+        let url = URL(string: "http://10.100.17.47:5000/products/\(ean)")!
         let request = URLRequest(url: url)
         
         let session = URLSession(configuration: .default)

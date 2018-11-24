@@ -37,9 +37,9 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         let product = Cart.shared.products[indexPath.row]
-        cell.imageView?.kf.setImage(with: product.imageURL)
+        cell.thumbnailView.kf.setImage(with: product.imageURL)
         cell.nameLabel.text = product.name
-        cell.priceLabel.text = "€\(product.price)"
+        cell.priceLabel.text = product.price
         
         return cell
     }
