@@ -32,12 +32,8 @@ struct Product: Hashable {
         return Product(imageName: "Popcorn", modelName: "popcorn-v1", name: "Popcorn", price: "€0.67", pricePerWeight: "€7.44/kg", weight: "90g")
     }
     
-    static var froosh: Product {
-        return Product(imageName: "Popcorn", modelName: "froosh-v1", name: "Froosh", price: "€1.34", pricePerWeight: "€3.94/kg", weight: "90g")
-    }
-    
     static var products: [Product] {
-        return [.bread, .meat, .orangeJuice, .popcorn, .froosh]
+        return [.bread, .meat, .orangeJuice, .popcorn]
     }
 }
 
