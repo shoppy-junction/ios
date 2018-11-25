@@ -32,6 +32,8 @@ class ProductView: UIVisualEffectView {
     @IBOutlet weak var fourthBadgeView: UIImageView!
     @IBOutlet weak var fifthBadgeView: UIImageView!
     @IBOutlet weak var sixthBadgeView: UIImageView!
+    @IBOutlet weak var recommendationLabel: UILabel!
+    @IBOutlet weak var recommendationLocationLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -72,6 +74,11 @@ class ProductView: UIVisualEffectView {
             
             imageViews[idx]?.image = image
         }
+        
+        let number = ["one", "two", "three", "four", "five"][Int.random(in: 0..<5)]
+        
+        recommendationLabel.text = "We also recommend: \(product.recommendation)"
+        recommendationLocationLabel.text = "You can find this product in aisle \(number)"
     }
     
     @IBAction func addedToCart(_ sender: UIButton) {

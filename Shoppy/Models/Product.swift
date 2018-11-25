@@ -16,6 +16,7 @@ struct Product {
     let price: String
     let pricePerWeight: String
     let weight: String
+    let recommendation: String
     
     let locallySourced: Bool
     let lactoseFree: Bool
@@ -54,6 +55,19 @@ struct Product {
         self.pricePerWeight = "€\(numberFormatter.string(from: NSNumber(value: pricePerWeight)) ?? "?")/kg"
         self.weight = "\(weight)g"
         
+        switch identifier {
+        case "6410381095115": // popcorn
+            recommendation = "Skinny Pop"
+        case "6410402003488": // bread
+            recommendation = "Gluten-Free Bread"
+        case "6410405108371": // meat
+            recommendation = "Steamed Tofu"
+        case "6410405208163": // orange cola
+            recommendation = "Water"
+        default:
+            recommendation = "Milk"
+        }
+        
         locallySourced = json["finlandMade"].bool ?? false
         lactoseFree = json["lactoseFree"].bool ?? false
         lowFat = json["lowFat"].bool ?? false
@@ -63,13 +77,14 @@ struct Product {
         vegetarian = json["vegetarian"].bool ?? false
     }
     
-    init(identifier: String, imageURL: String, name: String, price: String, pricePerWeight: String, weight: String) {
+    init(identifier: String, imageURL: String, name: String, price: String, pricePerWeight: String, weight: String, recommendation: String) {
         self.identifier = identifier
         self.imageURL = URL(string: imageURL)
         self.name = name
         self.price = price
         self.pricePerWeight = pricePerWeight
         self.weight = weight
+        self.recommendation = recommendation
         
         locallySourced = false
         lactoseFree = false
