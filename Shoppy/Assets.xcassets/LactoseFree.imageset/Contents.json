@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "no_lactose.png",
+      "filename" : "no_lactose copy 2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "no_lactose copy.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "no_lactose.png",
       "scale" : "3x"
     }
   ],
