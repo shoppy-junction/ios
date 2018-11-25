@@ -29,9 +29,30 @@ struct Product {
         identifier = json["baseEan"].string ?? ""
         imageURL = URL(string: json["img_url"].string ?? "")
         name = json["name"].string ?? ""
-        price = "€\(json["price"].float ?? 0)"
-        pricePerWeight = "€4.25/kg"
-        weight = "300g"
+        
+        let price = json["price"].float ?? 0
+        let weightUnit = json["packageUnit"].string ?? "g"
+        
+        var weight = Float(json["packageSize"].string ?? "0") ?? 0
+        
+        switch weightUnit {
+        case "g":
+            break
+        case "l":
+            weight *= 1000
+        default:
+            break
+        }
+        
+        self.price = "€\(price)"
+        
+        let pricePerWeight = price / weight * 1000
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.currencyCode = "€"
+        
+        self.pricePerWeight = "€\(numberFormatter.string(from: NSNumber(value: pricePerWeight)) ?? "?")/kg"
+        self.weight = "\(weight)g"
         
         locallySourced = json["finlandMade"].bool ?? false
         lactoseFree = json["lactoseFree"].bool ?? false
