@@ -39,7 +39,12 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
             fatalError()
         }
         
+        guard let referenceModels = ARReferenceObject.referenceObjects(inGroupNamed: "Products", bundle: nil) else {
+            fatalError()
+        }
+        
         configuration.detectionImages = referenceImages
+        configuration.detectionObjects = referenceModels
         sceneView.session.delegate = self
         sceneView.session.run(configuration)
         
