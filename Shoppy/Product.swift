@@ -79,7 +79,7 @@ struct Product {
         }
         
         if nutFree {
-            badges.append("Finland")
+            badges.append("NutFree")
         }
         
         if vegan {
