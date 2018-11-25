@@ -27,17 +27,13 @@ class PointsViewController: UIViewController {
         progressRing.innerRingColor = UIButton().tintColor
         progressRing.innerRingWidth = 8
         progressRing.outerRingWidth = 0
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        welcomeLabel.count(from: 0, to: 312)
+        progressRing.valueIndicator = " points"
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        welcomeLabel.count(from: 0, to: 312)
         progressRing.startProgress(to: 312, duration: 1)
     }
     

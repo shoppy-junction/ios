@@ -27,7 +27,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="184"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ham" translatesAutoresizingMaskIntoConstraints="NO" id="EAi-UA-Nws">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EAi-UA-Nws">
                                             <rect key="frame" x="12" y="12" width="64" height="64"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="EAi-UA-Nws" secondAttribute="height" multiplier="1:1" id="hfw-rf-9fa"/>
@@ -63,6 +63,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="mw2-da-ci2"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                             <state key="normal" title="Add to Cart"/>
                                             <connections>
                                                 <action selector="addedToCart:" destination="Ueg-VR-LLi" eventType="touchUpInside" id="j3k-Nl-F9I"/>
@@ -139,32 +140,48 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHU-GJ-tDx">
-                                            <rect key="frame" x="156.5" y="100" width="30" height="36"/>
+                                            <rect key="frame" x="16" y="100" width="311" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="j4T-Vk-GpV"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                            <state key="normal" title="OK"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                            <state key="normal" title="View Recipe"/>
                                             <connections>
                                                 <action selector="okButtonPressed:" destination="7II-cx-Jik" eventType="touchUpInside" id="Q1k-7K-nq2"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add cheese to your cart, and you'll be able to make a sandwich!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHo-Bg-lFH">
-                                            <rect key="frame" x="16" y="49" width="311" height="43"/>
+                                            <rect key="frame" x="16" y="47" width="311" height="39"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVd-19-Fhq" customClass="CloseButton" customModule="Shoppy" customModuleProvider="target">
+                                            <rect key="frame" x="319" y="8" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="Buy-Wt-OAk"/>
+                                                <constraint firstAttribute="height" constant="16" id="O5S-dR-kew"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                            <state key="normal" image="Close"/>
+                                            <connections>
+                                                <action selector="closeButtonPressed:" destination="Ueg-VR-LLi" eventType="touchUpInside" id="3GL-E3-kIk"/>
+                                                <action selector="closeButtonPressed:" destination="7II-cx-Jik" eventType="touchUpInside" id="Kaa-iE-eew"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="NHU-GJ-tDx" secondAttribute="bottom" constant="16" id="JlM-ES-DA6"/>
                                         <constraint firstItem="efR-ea-lFg" firstAttribute="centerX" secondItem="SP7-9Y-dLj" secondAttribute="centerX" id="QcI-Cm-FaU"/>
-                                        <constraint firstItem="NHU-GJ-tDx" firstAttribute="top" secondItem="YHo-Bg-lFH" secondAttribute="bottom" constant="8" id="XSM-9G-nV4"/>
-                                        <constraint firstItem="YHo-Bg-lFH" firstAttribute="top" secondItem="efR-ea-lFg" secondAttribute="bottom" constant="8" id="XoA-g3-2g1"/>
-                                        <constraint firstItem="NHU-GJ-tDx" firstAttribute="centerX" secondItem="SP7-9Y-dLj" secondAttribute="centerX" id="cJs-0T-2lf"/>
+                                        <constraint firstItem="DVd-19-Fhq" firstAttribute="top" secondItem="SP7-9Y-dLj" secondAttribute="top" constant="8" id="RER-Og-Cqk"/>
+                                        <constraint firstAttribute="trailing" secondItem="NHU-GJ-tDx" secondAttribute="trailing" constant="16" id="WpZ-FZ-fkt"/>
+                                        <constraint firstItem="NHU-GJ-tDx" firstAttribute="top" secondItem="YHo-Bg-lFH" secondAttribute="bottom" constant="14" id="XSM-9G-nV4"/>
+                                        <constraint firstItem="YHo-Bg-lFH" firstAttribute="top" secondItem="efR-ea-lFg" secondAttribute="bottom" constant="6" id="XoA-g3-2g1"/>
                                         <constraint firstItem="YHo-Bg-lFH" firstAttribute="leading" secondItem="SP7-9Y-dLj" secondAttribute="leading" constant="16" id="g4K-xT-yfq"/>
+                                        <constraint firstAttribute="trailing" secondItem="DVd-19-Fhq" secondAttribute="trailing" constant="8" id="ldb-wq-LxG"/>
                                         <constraint firstItem="efR-ea-lFg" firstAttribute="top" secondItem="SP7-9Y-dLj" secondAttribute="top" constant="20" id="sLB-jh-lIE"/>
                                         <constraint firstAttribute="trailing" secondItem="YHo-Bg-lFH" secondAttribute="trailing" constant="16" id="sz9-ZF-feP"/>
+                                        <constraint firstItem="NHU-GJ-tDx" firstAttribute="leading" secondItem="SP7-9Y-dLj" secondAttribute="leading" constant="16" id="z6b-ez-D9d"/>
                                     </constraints>
                                 </view>
                                 <constraints>
@@ -184,13 +201,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRB-GU-JTm">
-                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40.5"/>
                                             <connections>
                                                 <segue destination="VG1-AC-QB1" kind="presentation" modalPresentationStyle="overFullScreen" id="naf-dk-9n1"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cart" translatesAutoresizingMaskIntoConstraints="NO" id="LJZ-jk-y63">
-                                            <rect key="frame" x="14" y="7" width="26" height="26"/>
+                                            <rect key="frame" x="14" y="7" width="26" height="26.5"/>
                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LJZ-jk-y63" secondAttribute="height" multiplier="1:1" id="672-Vr-N8A"/>
@@ -220,13 +237,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRp-ry-fUn">
-                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40.5"/>
                                             <connections>
                                                 <segue destination="QZS-sh-KAa" kind="presentation" modalPresentationStyle="overFullScreen" id="zjn-90-MUN"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Leaf" translatesAutoresizingMaskIntoConstraints="NO" id="czl-Cm-23X">
-                                            <rect key="frame" x="14" y="7" width="26" height="26"/>
+                                            <rect key="frame" x="14" y="7" width="26" height="26.5"/>
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="czl-Cm-23X" secondAttribute="height" multiplier="1:1" id="1hV-vN-WrQ"/>
@@ -499,7 +516,6 @@
     <resources>
         <image name="Cart" width="36" height="36"/>
         <image name="Close" width="24" height="24"/>
-        <image name="Ham" width="30.719999313354492" height="30.719999313354492"/>
         <image name="Leaf" width="36" height="36"/>
     </resources>
 </document>

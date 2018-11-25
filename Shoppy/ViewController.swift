@@ -7,6 +7,7 @@
 //
 
 import ARKit
+import SafariServices
 import UIKit
 
 class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, RecipeViewDelegate, BeaconScannerDelegate {
@@ -104,6 +105,10 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     }
     
     func showRecipeView() {
+        guard productViewBottomConstraint.constant != 16 else {
+            return
+        }
+        
         recipeViewBottomConstraint.constant = 16
         
         UIView.animate(withDuration: 0.25) {
@@ -118,6 +123,14 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     }
     
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+        guard recipeViewBottomConstraint.constant != 16 else {
+            for anchor in anchors {
+                session.remove(anchor: anchor)
+            }
+            
+            return
+        }
+        
         guard let ean = anchors.first?.name else {
             return
         }
@@ -173,6 +186,14 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     }
     
     // MARK: - RecipeViewDelegate
+    
+    func recipeView(_ recipeView: RecipeView, willViewRecipe recipe: Recipe) {
+        let url = URL(string: "https://www.k-ruoka.fi/reseptit/vohvelisandwich")!
+        let controller = SFSafariViewController(url: url)
+        present(controller, animated: true)
+        
+        hideRecipeView()
+    }
     
     func recipeView(_ recipeView: RecipeView, dismissedWithMessage message: String?) {
         hideRecipeView()
