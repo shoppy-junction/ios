@@ -281,7 +281,7 @@
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhe-AL-QbJ" customClass="BlurredButton" customModule="Shoppy" customModuleProvider="target">
                                 <rect key="frame" x="305" y="32" width="54" height="40.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uTP-ej-okJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="54" height="40.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="40"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRB-GU-JTm">
@@ -317,7 +317,7 @@
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5e-53-EbV" customClass="BlurredButton" customModule="Shoppy" customModuleProvider="target">
                                 <rect key="frame" x="16" y="32" width="54" height="40.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Frg-pT-Lif">
-                                    <rect key="frame" x="0.0" y="0.0" width="54" height="40.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="40"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRp-ry-fUn">
