@@ -163,9 +163,11 @@ class MainViewController: UIViewController, ARSessionDelegate, ProductViewDelega
         guard let frame = sceneView.session.currentFrame else {
             return
         }
-
-        for anchor in frame.anchors {
-            sceneView.session.remove(anchor: anchor)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            for anchor in frame.anchors {
+                self.sceneView.session.remove(anchor: anchor)
+            }
         }
     }
     
@@ -176,8 +178,10 @@ class MainViewController: UIViewController, ARSessionDelegate, ProductViewDelega
             return
         }
         
-        for anchor in frame.anchors {
-            sceneView.session.remove(anchor: anchor)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            for anchor in frame.anchors {
+                self.sceneView.session.remove(anchor: anchor)
+            }
         }
     }
     
