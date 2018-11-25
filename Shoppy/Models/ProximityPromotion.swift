@@ -15,7 +15,7 @@ struct ProximityPromotion {
     let product: Product
     
     static var bread: ProximityPromotion {
-        let product = Product(identifier: "6410402003488", imageURL: "https://public.keskofiles.com/f/k-ruoka/product/6410402003488?w=800&h=500&fm=jpg&q=90&fit=clip&bg=fff", name: "Loaf of Bread", price: "€1.50", pricePerWeight: "€2.50/kg", weight: "300g", recommendation: "Gluten-Free Bread")
+        let product = Product(identifier: "6410402003488", imageURL: "https://public.keskofiles.com/f/k-ruoka/product/6410402003488?w=800&h=500&fm=jpg&q=90&fit=clip&bg=fff", name: "Bread", price: "€1.50", pricePerWeight: "Buy two for the price of one", weight: "On sale!", recommendation: "Gluten-Free Bread")
         return ProximityPromotion(beacon: 13, name: "Bread", product: product)
     }
     
