@@ -26,6 +26,12 @@ class ProductView: UIVisualEffectView {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var pricePerWeightLabel: UILabel!
     @IBOutlet weak var addToCartButton: UIButton!
+    @IBOutlet weak var firstBadgeView: UIImageView!
+    @IBOutlet weak var secondBadgeView: UIImageView!
+    @IBOutlet weak var thirdBadgeView: UIImageView!
+    @IBOutlet weak var fourthBadgeView: UIImageView!
+    @IBOutlet weak var fifthBadgeView: UIImageView!
+    @IBOutlet weak var sixthBadgeView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,6 +55,16 @@ class ProductView: UIVisualEffectView {
         weightLabel.text = product.weight
         priceLabel.text = product.price
         pricePerWeightLabel.text = product.pricePerWeight
+        
+        let imageViews = [firstBadgeView, secondBadgeView, thirdBadgeView, fourthBadgeView, fifthBadgeView, sixthBadgeView]
+        
+        for (idx, image) in product.badges.enumerated() {
+            guard idx < imageViews.count else {
+                break
+            }
+            
+            imageViews[idx]?.image = image
+        }
     }
     
     @IBAction func addedToCart(_ sender: UIButton) {

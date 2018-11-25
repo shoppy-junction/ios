@@ -81,7 +81,7 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     }
     
     func hideProductView() {
-        productViewBottomConstraint.constant = -224
+        productViewBottomConstraint.constant = -256
         
         UIView.animate(withDuration: 0.25) {
             self.view.layoutIfNeeded()
