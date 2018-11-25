@@ -283,13 +283,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRB-GU-JTm">
-                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40"/>
                                             <connections>
                                                 <segue destination="VG1-AC-QB1" kind="presentation" modalPresentationStyle="overFullScreen" id="naf-dk-9n1"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cart" translatesAutoresizingMaskIntoConstraints="NO" id="LJZ-jk-y63">
-                                            <rect key="frame" x="14" y="7" width="26" height="26.5"/>
+                                            <rect key="frame" x="14" y="7" width="26" height="26"/>
                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LJZ-jk-y63" secondAttribute="height" multiplier="1:1" id="672-Vr-N8A"/>
@@ -319,13 +319,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRp-ry-fUn">
-                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40"/>
                                             <connections>
                                                 <segue destination="QZS-sh-KAa" kind="presentation" modalPresentationStyle="overFullScreen" id="zjn-90-MUN"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Leaf" translatesAutoresizingMaskIntoConstraints="NO" id="czl-Cm-23X">
-                                            <rect key="frame" x="14" y="7" width="26" height="26.5"/>
+                                            <rect key="frame" x="14" y="7" width="26" height="26"/>
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="czl-Cm-23X" secondAttribute="height" multiplier="1:1" id="1hV-vN-WrQ"/>
@@ -526,37 +526,96 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good morning, Jack! You have 312 reward points." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bys-Rg-xqf" customClass="UICountingLabel">
-                                <rect key="frame" x="32" y="96" width="311" height="62.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yT-NI-AT2" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
-                                <rect key="frame" x="65.5" y="190.5" width="244" height="244"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BjV-gz-BRG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2yT-NI-AT2" secondAttribute="height" multiplier="1:1" id="huG-2H-Ghe"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isClockwise" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
-                                        <real key="value" value="-90"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="endAngle">
-                                        <real key="value" value="270"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WelcomeCell" rowHeight="409" id="20A-s5-KWo" customClass="WelcomeCell" customModule="Shoppy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="409"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="20A-s5-KWo" id="6FS-qZ-Vj8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="408.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good morning, Jack! You have 312 reward points." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bys-Rg-xqf" customClass="UICountingLabel">
+                                                    <rect key="frame" x="32" y="32" width="311" height="63"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yT-NI-AT2" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
+                                                    <rect key="frame" x="65.5" y="127" width="244" height="243.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="2yT-NI-AT2" secondAttribute="height" multiplier="1:1" id="huG-2H-Ghe"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isClockwise" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                                            <real key="value" value="-90"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="endAngle">
+                                                            <real key="value" value="270"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bys-Rg-xqf" firstAttribute="leading" secondItem="6FS-qZ-Vj8" secondAttribute="leading" constant="32" id="3nd-rK-YTh"/>
+                                                <constraint firstItem="bys-Rg-xqf" firstAttribute="top" secondItem="6FS-qZ-Vj8" secondAttribute="top" constant="32" id="BFh-gH-b3u"/>
+                                                <constraint firstAttribute="trailing" secondItem="bys-Rg-xqf" secondAttribute="trailing" constant="32" id="S6Q-rv-4Hf"/>
+                                                <constraint firstItem="2yT-NI-AT2" firstAttribute="top" secondItem="bys-Rg-xqf" secondAttribute="bottom" constant="32" id="X07-0W-3BO"/>
+                                                <constraint firstItem="2yT-NI-AT2" firstAttribute="width" secondItem="6FS-qZ-Vj8" secondAttribute="width" multiplier="0.65" id="brP-UU-SZA"/>
+                                                <constraint firstItem="2yT-NI-AT2" firstAttribute="centerX" secondItem="6FS-qZ-Vj8" secondAttribute="centerX" id="fyk-au-iHo"/>
+                                                <constraint firstAttribute="bottom" secondItem="2yT-NI-AT2" secondAttribute="bottom" constant="38" id="pcV-B5-2Qu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="progressRing" destination="2yT-NI-AT2" id="Hzv-49-sY2"/>
+                                            <outlet property="welcomeLabel" destination="bys-Rg-xqf" id="q4g-jk-0nK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChallengeCell" rowHeight="72" id="Tcd-Fh-elK" customClass="ChallengeCell" customModule="Shoppy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="437" width="375" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tcd-Fh-elK" id="Bch-of-3mf">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November Challenge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sc-cX-esK">
+                                                    <rect key="frame" x="15" y="15" width="186" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gain 100 points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="205-d9-x8A">
+                                                    <rect key="frame" x="15" y="36" width="119" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="205-d9-x8A" firstAttribute="bottom" secondItem="Bch-of-3mf" secondAttribute="bottomMargin" constant="-4" id="0BD-Ei-5v3"/>
+                                                <constraint firstItem="205-d9-x8A" firstAttribute="leading" secondItem="Bch-of-3mf" secondAttribute="leadingMargin" id="Ask-1W-DrA"/>
+                                                <constraint firstItem="5sc-cX-esK" firstAttribute="top" secondItem="Bch-of-3mf" secondAttribute="topMargin" constant="4" id="aHv-Qd-XHH"/>
+                                                <constraint firstItem="5sc-cX-esK" firstAttribute="leading" secondItem="Bch-of-3mf" secondAttribute="leadingMargin" id="h6r-8f-Kci"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="205-d9-x8A" id="DG5-ee-O4n"/>
+                                            <outlet property="titleLabel" destination="5sc-cX-esK" id="03d-LD-UcO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2yT-NI-AT2" firstAttribute="centerX" secondItem="7Vr-v6-mmU" secondAttribute="centerX" id="6Fu-rE-24R"/>
-                            <constraint firstItem="bys-Rg-xqf" firstAttribute="leading" secondItem="7Vr-v6-mmU" secondAttribute="leading" constant="32" id="FGz-KU-LlL"/>
-                            <constraint firstItem="2yT-NI-AT2" firstAttribute="width" secondItem="GTY-iu-eE1" secondAttribute="width" multiplier="0.65" id="dlL-ip-nP3"/>
-                            <constraint firstItem="2yT-NI-AT2" firstAttribute="top" secondItem="bys-Rg-xqf" secondAttribute="bottom" constant="32" id="pfb-wB-ZvY"/>
-                            <constraint firstAttribute="trailing" secondItem="bys-Rg-xqf" secondAttribute="trailing" constant="32" id="uYr-RG-vbN"/>
-                            <constraint firstItem="bys-Rg-xqf" firstAttribute="top" secondItem="7Vr-v6-mmU" secondAttribute="top" constant="32" id="zUa-Tk-YWj"/>
+                            <constraint firstItem="7Vr-v6-mmU" firstAttribute="trailing" secondItem="BjV-gz-BRG" secondAttribute="trailing" id="3i5-nI-C3a"/>
+                            <constraint firstAttribute="bottom" secondItem="BjV-gz-BRG" secondAttribute="bottom" id="50p-U2-Coa"/>
+                            <constraint firstItem="BjV-gz-BRG" firstAttribute="top" secondItem="7Vr-v6-mmU" secondAttribute="top" id="fsJ-Tm-OAf"/>
+                            <constraint firstItem="BjV-gz-BRG" firstAttribute="leading" secondItem="GTY-iu-eE1" secondAttribute="leading" id="qZ8-RD-MM0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Vr-v6-mmU"/>
                     </view>
@@ -568,13 +627,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="progressRing" destination="2yT-NI-AT2" id="CMN-uo-UAG"/>
-                        <outlet property="welcomeLabel" destination="bys-Rg-xqf" id="EmX-Hk-1M4"/>
+                        <outlet property="tableView" destination="BjV-gz-BRG" id="Kfm-fH-bWl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZ0-3Y-59z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="-709"/>
+            <point key="canvasLocation" x="2820" y="-709.29535232383819"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7ef-US-aE1">

@@ -105,10 +105,6 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     }
     
     func showRecipeView() {
-        guard productViewBottomConstraint.constant != 16 else {
-            return
-        }
-        
         recipeViewBottomConstraint.constant = 16
         
         UIView.animate(withDuration: 0.25) {
@@ -211,6 +207,10 @@ class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, 
     
     func didUpdateBeacon(beaconScanner: BeaconScanner, beaconInfo: BeaconInfo) {
         distances[beaconInfo.minor] = beaconInfo.RSSI
+        
+        guard productViewBottomConstraint.constant != 16 else {
+            return
+        }
         
         for promotion in ProximityPromotion.promotions {
             if promotion.matches(distances: distances) {

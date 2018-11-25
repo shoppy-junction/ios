@@ -61,6 +61,10 @@ class ProductView: UIVisualEffectView {
         
         let imageViews = [firstBadgeView, secondBadgeView, thirdBadgeView, fourthBadgeView, fifthBadgeView, sixthBadgeView]
         
+        for imageView in imageViews {
+            imageView?.image = nil
+        }
+        
         for (idx, image) in product.badges.enumerated() {
             guard idx < imageViews.count else {
                 break
