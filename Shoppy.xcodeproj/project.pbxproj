@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CFB9F2169AA97EF19BB4A47A /* Pods_Shoppy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B007628DC33E5C69710E5ADA /* Pods_Shoppy.framework */; };
 		EB0CA60021A8695E004DE83C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CA5FF21A8695E004DE83C /* AppDelegate.swift */; };
-		EB0CA60221A8695E004DE83C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CA60121A8695E004DE83C /* ViewController.swift */; };
+		EB0CA60221A8695E004DE83C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CA60121A8695E004DE83C /* MainViewController.swift */; };
 		EB0CA60521A8695E004DE83C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60321A8695E004DE83C /* Main.storyboard */; };
 		EB0CA60721A86960004DE83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60621A86960004DE83C /* Assets.xcassets */; };
 		EB0CA60A21A86960004DE83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0CA60821A86960004DE83C /* LaunchScreen.storyboard */; };
@@ -40,7 +40,7 @@
 		B007628DC33E5C69710E5ADA /* Pods_Shoppy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoppy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0CA5FC21A8695E004DE83C /* Shoppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0CA5FF21A8695E004DE83C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB0CA60121A8695E004DE83C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB0CA60121A8695E004DE83C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EB0CA60421A8695E004DE83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB0CA60621A86960004DE83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0CA60921A86960004DE83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -119,23 +119,11 @@
 			isa = PBXGroup;
 			children = (
 				EBAACCAF21A9E7A700E22EDC /* Eddystone */,
+				EBB3F70F21AA47D3001E8632 /* View Controllers */,
+				EBB3F71021AA4803001E8632 /* Views */,
+				EBB3F71121AA480A001E8632 /* Models */,
+				EBB3F71221AA4814001E8632 /* Extensions */,
 				EB0CA5FF21A8695E004DE83C /* AppDelegate.swift */,
-				EB0CA60121A8695E004DE83C /* ViewController.swift */,
-				EBB3F70921AA416B001E8632 /* ChallengeCell.swift */,
-				EBB3F70B21AA417C001E8632 /* WelcomeCell.swift */,
-				EB61877621A98EA40080BE8C /* CartViewController.swift */,
-				EBCF0CA621A8CFD0001C071D /* ProductView.swift */,
-				EBCF0CAA21A8EB31001C071D /* Product.swift */,
-				EBCF0CAC21A8F3A7001C071D /* Cart.swift */,
-				EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */,
-				EBCF0CAE21A91291001C071D /* BeaconInfo+Shoppy.swift */,
-				EB61877421A98DE50080BE8C /* BlurredButton.swift */,
-				EB61877821A9AB4E0080BE8C /* CartCell.swift */,
-				EBAACCA521A9C42400E22EDC /* CloseButton.swift */,
-				EBAACCA721A9C55000E22EDC /* RecipeView.swift */,
-				EBFBACAC21AA00EA0096236F /* Recipe.swift */,
-				EBFBACAE21AA06FA0096236F /* PointsViewController.swift */,
-				EBB3F70D21AA454B001E8632 /* Challenge.swift */,
 				EB0CA60321A8695E004DE83C /* Main.storyboard */,
 				EB0CA60621A86960004DE83C /* Assets.xcassets */,
 				EB0CA60821A86960004DE83C /* LaunchScreen.storyboard */,
@@ -152,6 +140,50 @@
 				EBAACCAD21A9E22D00E22EDC /* DispatchTimer.swift */,
 			);
 			path = Eddystone;
+			sourceTree = "<group>";
+		};
+		EBB3F70F21AA47D3001E8632 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB0CA60121A8695E004DE83C /* MainViewController.swift */,
+				EB61877621A98EA40080BE8C /* CartViewController.swift */,
+				EBFBACAE21AA06FA0096236F /* PointsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EBB3F71021AA4803001E8632 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBB3F70921AA416B001E8632 /* ChallengeCell.swift */,
+				EBB3F70B21AA417C001E8632 /* WelcomeCell.swift */,
+				EBCF0CA621A8CFD0001C071D /* ProductView.swift */,
+				EBAACCA721A9C55000E22EDC /* RecipeView.swift */,
+				EBAACCA521A9C42400E22EDC /* CloseButton.swift */,
+				EB61877421A98DE50080BE8C /* BlurredButton.swift */,
+				EB61877821A9AB4E0080BE8C /* CartCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EBB3F71121AA480A001E8632 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBB3F70D21AA454B001E8632 /* Challenge.swift */,
+				EBCF0CAA21A8EB31001C071D /* Product.swift */,
+				EBCF0CB021A919D4001C071D /* ProximityPromotion.swift */,
+				EBFBACAC21AA00EA0096236F /* Recipe.swift */,
+				EBCF0CAC21A8F3A7001C071D /* Cart.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EBB3F71221AA4814001E8632 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EBCF0CAE21A91291001C071D /* BeaconInfo+Shoppy.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +315,7 @@
 				EBCF0CAF21A91291001C071D /* BeaconInfo+Shoppy.swift in Sources */,
 				EBAACCAA21A9E19E00E22EDC /* Eddystone.swift in Sources */,
 				EB61877921A9AB4E0080BE8C /* CartCell.swift in Sources */,
-				EB0CA60221A8695E004DE83C /* ViewController.swift in Sources */,
+				EB0CA60221A8695E004DE83C /* MainViewController.swift in Sources */,
 				EB61877521A98DE50080BE8C /* BlurredButton.swift in Sources */,
 				EBAACCA621A9C42400E22EDC /* CloseButton.swift in Sources */,
 				EBFBACAF21AA06FA0096236F /* PointsViewController.swift in Sources */,

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Shoppy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Shoppy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,13 +283,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRB-GU-JTm">
-                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40.5"/>
                                             <connections>
                                                 <segue destination="VG1-AC-QB1" kind="presentation" modalPresentationStyle="overFullScreen" id="naf-dk-9n1"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cart" translatesAutoresizingMaskIntoConstraints="NO" id="LJZ-jk-y63">
-                                            <rect key="frame" x="14" y="7" width="26" height="26"/>
+                                            <rect key="frame" x="14" y="7" width="26" height="26.5"/>
                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LJZ-jk-y63" secondAttribute="height" multiplier="1:1" id="672-Vr-N8A"/>
@@ -319,13 +319,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRp-ry-fUn">
-                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="40.5"/>
                                             <connections>
                                                 <segue destination="QZS-sh-KAa" kind="presentation" modalPresentationStyle="overFullScreen" id="zjn-90-MUN"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Leaf" translatesAutoresizingMaskIntoConstraints="NO" id="czl-Cm-23X">
-                                            <rect key="frame" x="14" y="7" width="26" height="26"/>
+                                            <rect key="frame" x="14" y="7" width="26" height="26.5"/>
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="czl-Cm-23X" secondAttribute="height" multiplier="1:1" id="1hV-vN-WrQ"/>

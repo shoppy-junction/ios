@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Shoppy
 //
 //  Created by Jack Cook on 11/23/18.
@@ -10,7 +10,7 @@ import ARKit
 import SafariServices
 import UIKit
 
-class ViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, RecipeViewDelegate, BeaconScannerDelegate {
+class MainViewController: UIViewController, ARSessionDelegate, ProductViewDelegate, RecipeViewDelegate, BeaconScannerDelegate {
     
     var distances: [Int: Int] = [:]
     let distancesNumber = 3
